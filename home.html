@@ -69,6 +69,12 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 4px solid #1b3b36;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
         .card h3 {
             color: #1b3b36;
@@ -84,6 +90,25 @@
             margin-bottom: 8px;
             font-size: 14px;
         }
+        .select-btn {
+            display: inline-block;
+            background-color: #1b3b36;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            cursor: pointer;
+        }
+        .select-btn:hover {
+            background-color: #142c28;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -98,54 +123,59 @@
 
     <header>
         <h1>Kikoma Global Investment Limited</h1>
-        <p>Executive Portal & Global Operations Dashboard</p>
+        <p>Select Your Operational Portal & Engagement Track</p>
     </header>
 
     <nav>
         <a href="#overview">Overview</a>
-        <a href="#operations">Core Operations</a>
-        <a href="#compliance">Compliance</a>
+        <a href="#selection">Select Track</a>
         <a href="#" onclick="logout()">Sign Out</a>
     </nav>
 
     <div class="container">
         <div class="welcome-card" id="overview">
-            <h2>Welcome, Managing Director</h2>
-            <p>You have successfully authenticated into the official management portal for Kikoma Global Investment Limited. All trade routes, corporate registrations, and infrastructure assets are active and synchronized.</p>
+            <h2>Executive Dashboard Selection</h2>
+            <p>Select a specialized department or engagement track below to load the corresponding workflows, trade specifications, and management tools.</p>
         </div>
 
-        <div class="grid">
-            <div class="card" id="operations">
-                <h3>Agricultural Exports</h3>
-                <p>Global sourcing and export channel management:</p>
+        <div class="grid" id="selection">
+            <!-- B2B Agricultural Engagement Option -->
+            <div class="card">
+                <h3>B2B Agricultural Engagement</h3>
+                <p>Global export sourcing and commodity management:</p>
                 <ul>
-                    <li>Dried fermented cocoa beans</li>
-                    <li>Premium raw cashew nuts</li>
+                    <li>Dried fermented cocoa beans & raw cashew nuts</li>
                     <li>Dried cassava products</li>
-                    <li>Logistics from Ipokia/Idiroko via Lagos-Badagry Expressway to Apapa Port</li>
+                    <li>Logistics via Ipokia & Idiroko to Apapa Port</li>
+                    <li>SGS inspection & Freshdi B2B channels</li>
                 </ul>
+                <button class="select-btn" onclick="selectEngagement('B2B Agricultural Export')">Select B2B Track</button>
             </div>
 
+            <!-- Construction & Aluminum Option -->
             <div class="card">
-                <h3>Industrial & Engineering Services</h3>
-                <p>Commercial infrastructure and manufacturing offerings:</p>
+                <h3>Construction & Aluminum</h3>
+                <p>Infrastructure assets and manufacturing services:</p>
                 <ul>
                     <li>Building construction & heavy equipment rentals</li>
                     <li>Aluminum door and window fabrication</li>
-                    <li>Industrial aluminum smelting partnerships</li>
-                    <li>Custom 3D illuminated storefront signboards</li>
+                    <li>Industrial aluminum smelting projects</li>
+                    <li>Custom 3D illuminated ACM storefront signs</li>
                 </ul>
+                <button class="select-btn" onclick="selectEngagement('Construction & Aluminum')">Select Construction Track</button>
             </div>
 
-            <div class="card" id="compliance">
+            <!-- Corporate Compliance Option -->
+            <div class="card">
                 <h3>Corporate Compliance</h3>
-                <p>Active institutional credentials:</p>
+                <p>Institutional registrations and governance:</p>
                 <ul>
-                    <li>Corporate Affairs Commission (CAC) Registered</li>
-                    <li>Nigerian Export Promotion Council (NEPC) Exporter</li>
-                    <li>Special Control Unit Against Money Laundering (SCUML) Compliant</li>
-                    <li>NACCIMA Corporate Member</li>
+                    <li>Corporate Affairs Commission (CAC)</li>
+                    <li>NEPC Exporter Registration Certificate</li>
+                    <li>SCUML Anti-Money Laundering Compliance</li>
+                    <li>NACCIMA Corporate Membership</li>
                 </ul>
+                <button class="select-btn" onclick="selectEngagement('Corporate Compliance')">Select Compliance Track</button>
             </div>
         </div>
     </div>
@@ -155,6 +185,11 @@
     </footer>
 
     <script>
+        function selectEngagement(trackName) {
+            alert("Engagement track selected: " + trackName + ". Loading active module...");
+            // You can add further page transitions or routing logic here for each track
+        }
+
         function logout() {
             if(confirm("Are you sure you want to sign out?")) {
                 window.location.href = 'index.html';
