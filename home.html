@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kikoma Global Investment Limited - Executive Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        header {
+            background-color: #1b3b36;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #a8d5ba;
+        }
+        nav {
+            background-color: #142c28;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #a8d5ba;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .welcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            border-left: 5px solid #1b3b36;
+        }
+        .welcome-card h2 {
+            margin-top: 0;
+            color: #1b3b36;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .card h3 {
+            color: #1b3b36;
+            margin-top: 0;
+            border-bottom: 2px solid #f4f7f6;
+            padding-bottom: 8px;
+        }
+        .card ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .card li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #1b3b36;
+            color: white;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Kikoma Global Investment Limited</h1>
+        <p>Executive Portal & Global Operations Dashboard</p>
+    </header>
+
+    <nav>
+        <a href="#overview">Overview</a>
+        <a href="#operations">Core Operations</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#" onclick="logout()">Sign Out</a>
+    </nav>
+
+    <div class="container">
+        <div class="welcome-card" id="overview">
+            <h2>Welcome, Managing Director</h2>
+            <p>You have successfully authenticated into the official management portal for Kikoma Global Investment Limited. All trade routes, corporate registrations, and infrastructure assets are active and synchronized.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card" id="operations">
+                <h3>Agricultural Exports</h3>
+                <p>Global sourcing and export channel management:</p>
+                <ul>
+                    <li>Dried fermented cocoa beans</li>
+                    <li>Premium raw cashew nuts</li>
+                    <li>Dried cassava products</li>
+                    <li>Logistics from Ipokia/Idiroko via Lagos-Badagry Expressway to Apapa Port</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>Industrial & Engineering Services</h3>
+                <p>Commercial infrastructure and manufacturing offerings:</p>
+                <ul>
+                    <li>Building construction & heavy equipment rentals</li>
+                    <li>Aluminum door and window fabrication</li>
+                    <li>Industrial aluminum smelting partnerships</li>
+                    <li>Custom 3D illuminated storefront signboards</li>
+                </ul>
+            </div>
+
+            <div class="card" id="compliance">
+                <h3>Corporate Compliance</h3>
+                <p>Active institutional credentials:</p>
+                <ul>
+                    <li>Corporate Affairs Commission (CAC) Registered</li>
+                    <li>Nigerian Export Promotion Council (NEPC) Exporter</li>
+                    <li>Special Control Unit Against Money Laundering (SCUML) Compliant</li>
+                    <li>NACCIMA Corporate Member</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 Kikoma Global Investment Limited. All Rights Reserved.
+    </footer>
+
+    <script>
+        function logout() {
+            if(confirm("Are you sure you want to sign out?")) {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+
+</body>
+</html>
