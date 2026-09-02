@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +39,7 @@
             margin: 0 15px;
             font-size: 14px;
             font-weight: bold;
+            cursor: pointer;
         }
         nav a:hover {
             color: #a8d5ba;
@@ -47,7 +49,7 @@
             max-width: 1000px;
             margin: auto;
         }
-        .welcome-card {
+        .welcome-card, .section-panel {
             background: white;
             padding: 25px;
             border-radius: 8px;
@@ -55,7 +57,7 @@
             margin-bottom: 20px;
             border-left: 5px solid #1b3b36;
         }
-        .welcome-card h2 {
+        .welcome-card h2, .section-panel h2 {
             margin-top: 0;
             color: #1b3b36;
         }
@@ -69,12 +71,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
             border-top: 4px solid #1b3b36;
-        }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
         }
         .card h3 {
             color: #1b3b36;
@@ -109,6 +106,28 @@
         .select-btn:hover {
             background-color: #142c28;
         }
+        .hidden {
+            display: none;
+        }
+        .back-btn {
+            background-color: #777;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            background-color: #555;
+        }
+        .contact-box {
+            background: #f4f7f6;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -123,61 +142,103 @@
 
     <header>
         <h1>Kikoma Global Investment Limited</h1>
-        <p>Select Your Operational Portal & Engagement Track</p>
+        <p>Executive Portal & Communication Hub</p>
     </header>
 
     <nav>
-        <a href="#overview">Overview</a>
-        <a href="#selection">Select Track</a>
-        <a href="#" onclick="logout()">Sign Out</a>
+        <a onclick="showMainDashboard()">Dashboard Home</a>
+        <a onclick="showSection('b2b')">B2B Engagement</a>
+        <a onclick="showSection('construction')">Construction & Aluminum</a>
+        <a onclick="showSection('compliance')">Compliance</a>
+        <a onclick="logout()">Sign Out</a>
     </nav>
 
     <div class="container">
-        <div class="welcome-card" id="overview">
-            <h2>Executive Dashboard Selection</h2>
-            <p>Select a specialized department or engagement track below to load the corresponding workflows, trade specifications, and management tools.</p>
-        </div>
-
-        <div class="grid" id="selection">
-            <!-- B2B Agricultural Engagement Option -->
-            <div class="card">
-                <h3>B2B Agricultural Engagement</h3>
-                <p>Global export sourcing and commodity management:</p>
-                <ul>
-                    <li>Dried fermented cocoa beans & raw cashew nuts</li>
-                    <li>Dried cassava products</li>
-                    <li>Logistics via Ipokia & Idiroko to Apapa Port</li>
-                    <li>SGS inspection & Freshdi B2B channels</li>
-                </ul>
-                <button class="select-btn" onclick="selectEngagement('B2B Agricultural Export')">Select B2B Track</button>
+        
+        <!-- MAIN DASHBOARD SELECTION VIEW -->
+        <div id="mainDashboard">
+            <div class="welcome-card">
+                <h2>Executive Dashboard Selection</h2>
+                <p>Select a specialized department or engagement track below to open direct communication channels and active management modules.</p>
             </div>
 
-            <!-- Construction & Aluminum Option -->
-            <div class="card">
-                <h3>Construction & Aluminum</h3>
-                <p>Infrastructure assets and manufacturing services:</p>
-                <ul>
-                    <li>Building construction & heavy equipment rentals</li>
-                    <li>Aluminum door and window fabrication</li>
-                    <li>Industrial aluminum smelting projects</li>
-                    <li>Custom 3D illuminated ACM storefront signs</li>
-                </ul>
-                <button class="select-btn" onclick="selectEngagement('Construction & Aluminum')">Select Construction Track</button>
-            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>B2B Agricultural Engagement</h3>
+                    <p>Export sourcing and commodity management:</p>
+                    <ul>
+                        <li>Dried fermented cocoa beans & raw cashew nuts</li>
+                        <li>Dried cassava products</li>
+                        <li>Logistics via Ipokia/Idiroko to Apapa Port</li>
+                    </ul>
+                    <button class="select-btn" onclick="showSection('b2b')">Open B2B Channel</button>
+                </div>
 
-            <!-- Corporate Compliance Option -->
-            <div class="card">
-                <h3>Corporate Compliance</h3>
-                <p>Institutional registrations and governance:</p>
-                <ul>
-                    <li>Corporate Affairs Commission (CAC)</li>
-                    <li>NEPC Exporter Registration Certificate</li>
-                    <li>SCUML Anti-Money Laundering Compliance</li>
-                    <li>NACCIMA Corporate Membership</li>
-                </ul>
-                <button class="select-btn" onclick="selectEngagement('Corporate Compliance')">Select Compliance Track</button>
+                <div class="card">
+                    <h3>Construction & Aluminum</h3>
+                    <p>Infrastructure and manufacturing offerings:</p>
+                    <ul>
+                        <li>Building construction & equipment rentals</li>
+                        <li>Aluminum window/door fabrication</li>
+                        <li>Custom 3D illuminated ACM signs</li>
+                    </ul>
+                    <button class="select-btn" onclick="showSection('construction')">Open Construction Desk</button>
+                </div>
+
+                <div class="card">
+                    <h3>Corporate Compliance</h3>
+                    <p>Institutional registrations and governance:</p>
+                    <ul>
+                        <li>CAC Incorporation & NEPC Exporter License</li>
+                        <li>SCUML Anti-Money Laundering Certification</li>
+                        <li>NACCIMA Corporate Membership</li>
+                    </ul>
+                    <button class="select-btn" onclick="showSection('compliance')">Open Compliance Desk</button>
+                </div>
             </div>
         </div>
+
+        <!-- B2B AGRICULTURAL ENGAGEMENT LEVEL -->
+        <div id="b2bSection" class="section-panel hidden">
+            <button class="back-btn" onclick="showMainDashboard()">← Back to Dashboard</button>
+            <h2>B2B Agricultural Export Communication Hub</h2>
+            <p>Connect directly with our trade desk for raw cocoa beans, cashew nuts, and dried cassava product orders and SGS inspections.</p>
+            
+            <div class="contact-box">
+                <h3>Direct Corporate Contacts</h3>
+                <p><strong>Chief Executive Officer Email:</strong> <a href="mailto:ceo@kikomaglobal.com">ceo@kikomaglobal.com</a></p>
+                <p><strong>Export Operations Desk:</strong> <a href="mailto:kikomaglobalinvestmentltd@gmail.com">kikomaglobalinvestmentltd@gmail.com</a></p>
+                <p><strong>Transit Route:</strong> Aggregation points in Ipokia & Idiroko via Lagos-Badagry Expressway to Apapa Port.</p>
+            </div>
+        </div>
+
+        <!-- CONSTRUCTION & ALUMINUM LEVEL -->
+        <div id="constructionSection" class="section-panel hidden">
+            <button class="back-btn" onclick="showMainDashboard()">← Back to Dashboard</button>
+            <h2>Construction & Aluminum Fabrication Level</h2>
+            <p>Manage project requests for heavy equipment rentals, aluminum door/window fabrication, and custom 3D illuminated signage.</p>
+            
+            <div class="contact-box">
+                <h3>Project Desk Contact</h3>
+                <p><strong>Direct Inquiry Email:</strong> <a href="mailto:ceo@kikomaglobal.com">ceo@kikomaglobal.com</a></p>
+                <p><strong>Services:</strong> Structural fabrication, equipment lease agreements, and storefront signage design specifications.</p>
+            </div>
+        </div>
+
+        <!-- COMPLIANCE LEVEL -->
+        <div id="complianceSection" class="section-panel hidden">
+            <button class="back-btn" onclick="showMainDashboard()">← Back to Dashboard</button>
+            <h2>Corporate Compliance & Legal Registry</h2>
+            <p>Review official registration documentation and governance credentials for Kikoma Global Investment Limited.</p>
+            
+            <div class="contact-box">
+                <h3>Institutional Verification Details</h3>
+                <p><strong>Entity:</strong> Kikoma Global Investment Limited (100% locally owned)</p>
+                <p><strong>Headquarters:</strong> Ogun State, Nigeria</p>
+                <p><strong>Registered Bodies:</strong> CAC, NEPC, SCUML, and NACCIMA Corporate Member.</p>
+            </div>
+        </div>
+
     </div>
 
     <footer>
@@ -185,9 +246,26 @@
     </footer>
 
     <script>
-        function selectEngagement(trackName) {
-            alert("Engagement track selected: " + trackName + ". Loading active module...");
-            // You can add further page transitions or routing logic here for each track
+        function showSection(sectionId) {
+            document.getElementById('mainDashboard').classList.add('hidden');
+            document.getElementById('b2bSection').classList.add('hidden');
+            document.getElementById('constructionSection').classList.add('hidden');
+            document.getElementById('complianceSection').classList.add('hidden');
+
+            if(sectionId === 'b2b') {
+                document.getElementById('b2bSection').classList.remove('hidden');
+            } else if(sectionId === 'construction') {
+                document.getElementById('constructionSection').classList.remove('hidden');
+            } else if(sectionId === 'compliance') {
+                document.getElementById('complianceSection').classList.remove('hidden');
+            }
+        }
+
+        function showMainDashboard() {
+            document.getElementById('b2bSection').classList.add('hidden');
+            document.getElementById('constructionSection').classList.add('hidden');
+            document.getElementById('complianceSection').classList.add('hidden');
+            document.getElementById('mainDashboard').classList.remove('hidden');
         }
 
         function logout() {
