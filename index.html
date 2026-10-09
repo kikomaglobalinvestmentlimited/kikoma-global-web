@@ -1,149 +1,301 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikoma Global Portal</title>
+    <title>Kikoma Global Investment Limited | Premier Nigerian Commodity Exporters & Trade Logistics</title>
+    <meta name="description" content="Kikoma Global Investment Limited (RC: 8918006, NEPC Certified) is a premier Nigerian exporter of Grade-1 West African Cocoa Beans, Premium Natural 10/12 Cocoa Powder, and full-scale customs clearing services.">
+    <meta name="keywords" content="Cocoa beans exporter Nigeria, Natural cocoa powder 10/12, Kikoma Global Investment Limited, Idiroko customs clearing agency, NEPC registered cocoa exporter, West Africa agricultural export">
+    
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Kikoma Global Investment Limited | Commodity Export & Logistics">
+    <meta property="og:description" content="NEPC Certified & CAC Registered Exporters of Grade-1 West African Cocoa Beans & Natural 10/12 Cocoa Powder. Strategic Trade Operations in Idiroko, Ogun State, Nigeria.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kikomaglobal.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1541356665065-22676f35dd40?auto=format&fit=crop&w=1200&q=80"> 
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        kikoma: {
+                            green: '#0F5132',
+                            gold: '#D4AF37',
+                            dark: '#0B1911',
+                            earth: '#2C1810',
+                            accent: '#198754',
+                            light: '#F8F9FA'
+                        }
+                    }
+                }
+            }
+        }
+    </script> 
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        .glass-header {
+            background: rgba(11, 25, 17, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        .auth-container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(11, 25, 17, 0.92) 0%, rgba(44, 24, 16, 0.85) 100%);
         }
-        h2 {
-            text-align: center;
-            color: #1b3b36;
-            margin-bottom: 25px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #333;
-            font-size: 14px;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .google-btn {
-            background-color: #db4437;
-            color: white;
-            margin-bottom: 15px;
-        }
-        .google-btn:hover {
-            background-color: #c23321;
-        }
-        .divider {
-            text-align: center;
-            margin: 15px 0;
-            color: #777;
-            font-size: 13px;
-        }
-        .submit-btn {
-            background-color: #1b3b36;
-            color: white;
-            margin-top: 10px;
-        }
-        .submit-btn:hover {
-            background-color: #142c28;
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-kikoma-gold selection:text-kikoma-dark"> 
 
-    <div class="auth-container">
-        <h2>Kikoma Global Portal</h2>
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-kikoma-dark text-slate-300 text-xs py-2 px-4 border-b border-emerald-900/50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center text-kikoma-gold"><i class="fas fa-certificate mr-1.5"></i> CAC RC: 8918006</span>
+                <span class="hidden md:inline">|</span>
+                <span class="hidden md:flex items-center"><i class="fas fa-award mr-1.5 text-kikoma-gold"></i> NEPC Registered Exporter</span>
+                <span class="hidden md:inline">|</span>
+                <span class="hidden md:flex items-center"><i class="fas fa-building mr-1.5 text-kikoma-gold"></i> NACCIMA & YECCIMA Member</span>
+            </div>
+            <div class="flex items-center space-x-6 text-xs">
+                <a href="mailto:info@kikomaglobal.com" class="hover:text-kikoma-gold transition-colors"><i class="fas fa-envelope mr-1 text-kikoma-gold"></i> info@kikomaglobal.com</a>
+                <a href="tel:+2348000000000" class="hover:text-kikoma-gold transition-colors"><i class="fas fa-phone mr-1 text-kikoma-gold"></i> Trade Desk</a>
+            </div>
+        </div>
+    </div> 
+
+    <!-- MAIN NAVIGATION -->
+    <header class="sticky top-0 z-50 glass-header border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- BRAND LOGO -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-kikoma-gold to-emerald-700 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-950/50 group-hover:scale-105 transition-transform">
+                        <span class="text-kikoma-dark font-extrabold text-2xl tracking-tighter">K</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-extrabold text-lg sm:text-xl tracking-wider leading-tight">KIKOMA GLOBAL</span>
+                        <span class="text-kikoma-gold text-xs font-semibold tracking-widest uppercase">Investment Limited</span>
+                    </div>
+                </a> 
+
+                <!-- DESKTOP MENU -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-200">
+                    <a href="#about" class="hover:text-kikoma-gold transition-colors">About Us</a>
+                    <a href="#products" class="hover:text-kikoma-gold transition-colors">Export Products</a>
+                    <a href="#specs" class="hover:text-kikoma-gold transition-colors">Specifications</a>
+                    <a href="#logistics" class="hover:text-kikoma-gold transition-colors">Customs & Freight</a>
+                    <a href="#leadership" class="hover:text-kikoma-gold transition-colors">Leadership</a>
+                    <a href="#contact" class="hover:text-kikoma-gold transition-colors">Contact</a>
+                </nav> 
+
+                <!-- HEADER CTA -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="#rfq" class="bg-gradient-to-r from-kikoma-gold to-yellow-600 hover:from-yellow-500 hover:to-kikoma-gold text-kikoma-dark font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-kikoma-gold/20 transition-all transform hover:-translate-y-0.5 text-sm flex items-center">
+                        <i class="fas fa-file-contract mr-2"></i> Request Trade Quote
+                    </a>
+                </div> 
+
+                <!-- MOBILE MENU BUTTON -->
+                <button id="mobileMenuBtn" class="lg:hidden text-slate-200 text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div> 
+
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-kikoma-dark/95 border-b border-emerald-900/50 px-6 py-6 space-y-4 text-slate-200 text-base font-medium">
+            <a href="#about" class="block hover:text-kikoma-gold">About Us</a>
+            <a href="#products" class="block hover:text-kikoma-gold">Export Products</a>
+            <a href="#specs" class="block hover:text-kikoma-gold">Specifications</a>
+            <a href="#logistics" class="block hover:text-kikoma-gold">Customs & Freight</a>
+            <a href="#leadership" class="block hover:text-kikoma-gold">Leadership</a>
+            <a href="#contact" class="block hover:text-kikoma-gold">Contact</a>
+            <a href="#rfq" class="block w-full text-center bg-kikoma-gold text-kikoma-dark font-bold py-3 rounded-lg">Request Trade Quote</a>
+        </div>
+    </header> 
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-cover bg-center min-h-[90vh] flex items-center py-20" style="background-image: url('https://images.unsplash.com/photo-1541356665065-22676f35dd40?auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 hero-overlay"></div>
         
-        <button type="button" class="google-btn" onclick="signInWithGoogle()">Sign in with Google</button>
-        
-        <div class="divider">OR REGISTER / SIGN IN</div>
-        
-        <form id="kikomaForm">
-            <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" required placeholder="Enter full name">
-            </div>
-            
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" required placeholder="Enter age">
-            </div>
-            
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" id="address" required placeholder="Enter address">
-            </div>
-            
-            <div class="form-group">
-                <label for="company">Company Name</label>
-                <input type="text" id="company" required value="KIKOMA GLOBAL INVESTMENT LIMITED">
-            </div>
-            
-            <div class="form-group">
-                <label for="country">Country (Where are you coming from?)</label>
-                <input type="text" id="country" required placeholder="Enter country">
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" required placeholder="Enter phone number">
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Create Password</label>
-                <input type="password" id="password" required placeholder="Create password">
-            </div>
-            
-            <button type="submit" id="submitBtn" class="submit-btn">Complete Sign Up & Access Website</button>
-        </form>
-    </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white w-full">
+            <div class="max-w-3xl">
+                
+                <div class="inline-flex items-center space-x-2 bg-emerald-950/80 border border-emerald-500/30 rounded-full px-4 py-2 mb-6 backdrop-blur-md">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-xs font-semibold text-emerald-300 uppercase tracking-wider">West Africa’s Trusted Trade Gateway</span>
+                </div> 
 
-    <script>
-        function signInWithGoogle() {
-            alert("Redirecting to Google Authentication...");
-        }
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+                    Global Commodity Exporting & International <span class="gold-gradient-text">Trade Logistics</span>
+                </h1> 
 
-        document.getElementById('kikomaForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('fullName').value;
-            
-            alert("Thank you " + name + "! Registration successful. Redirecting to Kikoma Global full platform...");
-            
-            // Redirects to your main website layout
-            window.location.href = 'home.html';
-        });
-    </script>
+                <p class="text-lg sm:text-xl text-slate-300 font-light mb-8 leading-relaxed">
+                    Kikoma Global Investment Limited bridges West African agricultural rich harvest with global industries. Premium exporter of Grade-1 Raw Cocoa Beans, Natural 10/12 Cocoa Powder, and full-spectrum customs clearance management.
+                </p> 
 
-</body>
-</html>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#rfq" class="bg-gradient-to-r from-kikoma-gold to-yellow-600 hover:from-yellow-500 hover:to-kikoma-gold text-kikoma-dark font-extrabold px-8 py-4 rounded-xl shadow-xl hover:shadow-kikoma-gold/30 transition-all text-center flex items-center justify-center text-base">
+                        <i class="fas fa-paper-plane mr-2.5"></i> Submit FCO / Export Inquiry
+                    </a>
+                    <a href="#products" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/20 backdrop-blur-md transition-all text-center flex items-center justify-center text-base">
+                        <i class="fas fa-boxes-stacked mr-2.5"></i> View Product Catalog
+                    </a>
+                </div> 
+
+                <!-- KEY METRICS -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-8 border-t border-white/10">
+                    <div>
+                        <div class="text-3xl font-extrabold text-kikoma-gold">100%</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Export Standard</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-white">Grade 1</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Cocoa Quality</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-kikoma-gold">Form NXP</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Compliant Process</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-extrabold text-white">Idiroko Hub</div>
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Strategic Border Ops</div>
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+    </section> 
+
+    <!-- INSTITUTIONAL CREDENTIALS / ACCREDITATIONS -->
+    <section class="bg-kikoma-dark py-12 border-y border-emerald-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p class="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-8">
+                Fully Accredited & Authorized Regulatory Compliance Framework
+            </p> 
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-90">
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl text-center w-full hover:border-kikoma-gold/50 transition-colors">
+                    <i class="fas fa-shield-halved text-kikoma-gold text-3xl mb-2"></i>
+                    <div class="text-white font-bold text-sm">CAC Registered</div>
+                    <div class="text-slate-400 text-xs">RC: 8918006</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl text-center w-full hover:border-kikoma-gold/50 transition-colors">
+                    <i class="fas fa-globe-africa text-kikoma-gold text-3xl mb-2"></i>
+                    <div class="text-white font-bold text-sm">NEPC Certified</div>
+                    <div class="text-slate-400 text-xs">Export License Holder</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl text-center w-full hover:border-kikoma-gold/50 transition-colors">
+                    <i class="fas fa-handshake text-kikoma-gold text-3xl mb-2"></i>
+                    <div class="text-white font-bold text-sm">NACCIMA Member</div>
+                    <div class="text-slate-400 text-xs">Chamber of Commerce</div>
+                </div>
+                <div class="bg-white/5 border border-white/10 p-6 rounded-xl text-center w-full hover:border-kikoma-gold/50 transition-colors">
+                    <i class="fas fa-truck-fast text-kikoma-gold text-3xl mb-2"></i>
+                    <div class="text-white font-bold text-sm">CRFFN Aligned</div>
+                    <div class="text-slate-400 text-xs">Customs Freight Framework</div>
+                </div>
+            </div>
+        </div>
+    </section> 
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <div>
+                    <div class="inline-flex items-center space-x-2 bg-emerald-100 text-kikoma-green text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider mb-4">
+                        Corporate Overview
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                        Excellence in Agricultural Commodities & Border Logistics Operations
+                    </h2>
+                    <p class="text-slate-600 text-base leading-relaxed mb-6">
+                        <strong>Kikoma Global Investment Limited</strong> is a dynamic Nigerian corporate enterprise headquartered in Idiroko, Ipokia Local Government Area, Ogun State. We specialize in international agricultural commodity sourcing, processing quality control, export documentation, and customs clearance logistics.
+                    </p>
+                    <p class="text-slate-600 text-base leading-relaxed mb-8">
+                        Positioned at the strategic trade corridor of Nigeria’s western border, our export arm connects European, Asian, and American industrial buyers with ethically sourced, top-tier West African cocoa. Through strict adherence to Central Bank of Nigeria (CBN) Form NXP guidelines, international Quality Certificates of Analysis, and transparent trade terms, we ensure seamless global deliveries.
+                    </p> 
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-lg bg-kikoma-green/10 text-kikoma-green flex items-center justify-center shrink-0 mt-1">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Ethical Sourcing</h4>
+                                <p class="text-slate-500 text-xs">Direct partnership with local farm cooperatives across Ogun & South-West cocoa belts.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 rounded-lg bg-kikoma-green/10 text-kikoma-green flex items-center justify-center shrink-0 mt-1">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Full Trade Compliance</h4>
+                                <p class="text-slate-500 text-xs">Full clearance paperwork, Phytosanitary Certificates & CBN NXP execution.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="relative">
+                    <div class="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1587049352847-81203061320d?auto=format&fit=crop&w=1000&q=80" alt="Cocoa Processing & Sourcing" class="object-cover w-full h-full transform hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 bg-kikoma-dark text-white p-6 rounded-xl shadow-2xl border border-kikoma-gold/30 hidden sm:block max-w-xs">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fas fa-anchor text-kikoma-gold text-2xl"></i>
+                            <span class="font-bold text-sm">Strategic Location</span>
+                        </div>
+                        <p class="text-xs text-slate-300">Operational hub at Idiroko Trade Gateway for seamless West African corridor logistics.</p>
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+    </section> 
+
+    <!-- PRODUCTS CATALOG SECTION -->
+    <section id="products" class="py-24 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-kikoma-green text-xs font-bold uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-full">Core Commodities</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4">Premium Export Product Line</h2>
+                <p class="text-slate-600 mt-4 text-base">We process, grade, and package premium cocoa products meeting rigorous international quality controls for global chocolate manufacturers, food processors, and industrial buyers.</p>
+            </div> 
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <!-- PRODUCT 1: RAW COCOA BEANS -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-xl border border-slate-200 hover:shadow-2xl transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1541356665065-22676f35dd40?auto=format&fit=crop&w=800&q=80" alt="Raw Cocoa Beans Exporter" class="w-full h-full object-cover">
+                            <div class="absolute top-4 right-4 bg-kikoma-dark/90 text-kikoma-gold text-xs font-bold px-3 py-1 rounded-full border border-kikoma-gold/30">
+                                Grade 1 / Main Crop
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-3">West African Raw Cocoa Beans</h3>
+                            <p class="text-slate-600 text-sm leadi
