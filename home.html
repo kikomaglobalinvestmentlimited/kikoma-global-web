@@ -1,279 +1,144 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikoma Global Investment Limited - Executive Dashboard</title>
+    <title>Kikoma Global Investment Limited | Elite West African Exporters & Trade Logistics (2030 Ready)</title>
+    <meta name="description" content="Kikoma Global Investment Limited (RC: 8918006, NEPC Certified) is a premier Nigerian exporter of Grade-1 Cocoa Beans, Raw Cashew Nuts, Cocoa Powder, and full-scale border customs logistics.">
+    <meta name="keywords" content="Cocoa beans exporter Nigeria, Raw cashew nuts supplier, Natural cocoa powder, Kikoma Global Investment Limited, Idiroko customs clearing, NEPC certified exporter">
+    
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:title" content="Kikoma Global Investment Limited | Global Commodity Export & Logistics">
+    <meta property="og:description" content="NEPC Certified & CAC Registered Exporters of Grade-1 West African Cocoa, Cashew, and Trade Logistics based in Idiroko, Ogun State, Nigeria.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kikomaglobal.com">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1541356665065-22676f35dd40?auto=format&fit=crop&w=1200&q=80"> 
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        kikoma: {
+                            green: '#0F5132',
+                            gold: '#D4AF37',
+                            dark: '#0B1911',
+                            earth: '#2C1810',
+                            accent: '#198754',
+                            light: '#F8F9FA'
+                        }
+                    }
+                }
+            }
+        }
+    </script> 
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
+        .glass-header {
+            background: rgba(11, 25, 17, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
-        header {
-            background-color: #1b3b36;
-            color: white;
-            padding: 20px;
-            text-align: center;
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(11, 25, 17, 0.94) 0%, rgba(44, 24, 16, 0.88) 100%);
         }
-        header h1 {
-            margin: 0;
-            font-size: 24px;
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        header p {
-            margin: 5px 0 0 0;
-            font-size: 14px;
-            color: #a8d5ba;
+        /* Ticker Animation */
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
-        nav {
-            background-color: #142c28;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        nav a:hover {
-            color: #a8d5ba;
-        }
-        .container {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-        .welcome-card, .section-panel {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
-            border-left: 5px solid #1b3b36;
-        }
-        .welcome-card h2, .section-panel h2 {
-            margin-top: 0;
-            color: #1b3b36;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid #1b3b36;
-        }
-        .card h3 {
-            color: #1b3b36;
-            margin-top: 0;
-            border-bottom: 2px solid #f4f7f6;
-            padding-bottom: 8px;
-        }
-        .card ul {
-            padding-left: 20px;
-            margin: 10px 0;
-        }
-        .card li {
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-        .select-btn {
-            display: inline-block;
-            background-color: #1b3b36;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 15px;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-            border: none;
-            cursor: pointer;
-        }
-        .select-btn:hover {
-            background-color: #142c28;
-        }
-        .hidden {
-            display: none;
-        }
-        .back-btn {
-            background-color: #777;
-            color: white;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-        .back-btn:hover {
-            background-color: #555;
-        }
-        .contact-box {
-            background: #f4f7f6;
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            background-color: #1b3b36;
-            color: white;
-            font-size: 13px;
+        .animate-ticker {
+            display: flex;
+            width: 200%;
+            animation: ticker 30s linear infinite;
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-kikoma-gold selection:text-kikoma-dark"> 
 
-    <header>
-        <h1>Kikoma Global Investment Limited</h1>
-        <p>Executive Portal & Communication Hub</p>
-    </header>
-
-    <nav>
-        <a onclick="showMainDashboard()">Dashboard Home</a>
-        <a onclick="showSection('b2b')">B2B Engagement</a>
-        <a onclick="showSection('construction')">Construction & Aluminum</a>
-        <a onclick="showSection('compliance')">Compliance</a>
-        <a onclick="logout()">Sign Out</a>
-    </nav>
-
-    <div class="container">
-        
-        <!-- MAIN DASHBOARD SELECTION VIEW -->
-        <div id="mainDashboard">
-            <div class="welcome-card">
-                <h2>Executive Dashboard Selection</h2>
-                <p>Select a specialized department or engagement track below to open direct communication channels and active management modules.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card">
-                    <h3>B2B Agricultural Engagement</h3>
-                    <p>Export sourcing and commodity management:</p>
-                    <ul>
-                        <li>Dried fermented cocoa beans & raw cashew nuts</li>
-                        <li>Dried cassava products</li>
-                        <li>Logistics via Ipokia/Idiroko to Apapa Port</li>
-                    </ul>
-                    <button class="select-btn" onclick="showSection('b2b')">Open B2B Channel</button>
-                </div>
-
-                <div class="card">
-                    <h3>Construction & Aluminum</h3>
-                    <p>Infrastructure and manufacturing offerings:</p>
-                    <ul>
-                        <li>Building construction & equipment rentals</li>
-                        <li>Aluminum window/door fabrication</li>
-                        <li>Custom 3D illuminated ACM signs</li>
-                    </ul>
-                    <button class="select-btn" onclick="showSection('construction')">Open Construction Desk</button>
-                </div>
-
-                <div class="card">
-                    <h3>Corporate Compliance</h3>
-                    <p>Institutional registrations and governance:</p>
-                    <ul>
-                        <li>CAC Incorporation & NEPC Exporter License</li>
-                        <li>SCUML Anti-Money Laundering Certification</li>
-                        <li>NACCIMA Corporate Membership</li>
-                    </ul>
-                    <button class="select-btn" onclick="showSection('compliance')">Open Compliance Desk</button>
-                </div>
-            </div>
+    <!-- LIVE GLOBAL TRADE TICKER BAR -->
+    <div class="bg-kikoma-dark text-kikoma-gold text-xs py-2.5 overflow-hidden border-b border-emerald-900/60 relative">
+        <div class="animate-ticker whitespace-nowrap flex space-x-12 items-center">
+            <span class="flex items-center"><i class="fas fa-chart-line mr-2"></i> <strong>Market Update (2030 Standard):</strong> Grade-1 Fermented Cocoa Beans: Main Crop Available</span>
+            <span>•</span>
+            <span class="flex items-center"><i class="fas fa-shield-halved mr-2"></i> CAC RC: 8918006</span>
+            <span>•</span>
+            <span class="flex items-center"><i class="fas fa-certificate mr-2"></i> NEPC Certified Exporter & NACCIMA Member</span>
+            <span>•</span>
+            <span class="flex items-center"><i class="fas fa-anchor mr-2"></i> Idiroko Border Customs Clearance & Freight Active</span>
+            <span>•</span>
+            <span class="flex items-center"><i class="fas fa-globe mr-2"></i> Global Shipping Hub: Lagos & Cotonou Corridors</span>
         </div>
-
-        <!-- B2B AGRICULTURAL ENGAGEMENT LEVEL -->
-        <div id="b2bSection" class="section-panel hidden">
-            <button class="back-btn" onclick="showMainDashboard()">← Back to Dashboard</button>
-            <h2>B2B Agricultural Export Communication Hub</h2>
-            <p>Connect directly with our trade desk for raw cocoa beans, cashew nuts, and dried cassava product orders and SGS inspections.</p>
-            
-            <div class="contact-box">
-                <h3>Direct Corporate Contacts</h3>
-                <p><strong>Chief Executive Officer Email:</strong> <a href="mailto:ceo@kikomaglobal.com">ceo@kikomaglobal.com</a></p>
-                <p><strong>Export Operations Desk:</strong> <a href="mailto:kikomaglobalinvestmentltd@gmail.com">kikomaglobalinvestmentltd@gmail.com</a></p>
-                <p><strong>Transit Route:</strong> Aggregation points in Ipokia & Idiroko via Lagos-Badagry Expressway to Apapa Port.</p>
-            </div>
-        </div>
-
-        <!-- CONSTRUCTION & ALUMINUM LEVEL -->
-        <div id="constructionSection" class="section-panel hidden">
-            <button class="back-btn" onclick="showMainDashboard()">← Back to Dashboard</button>
-            <h2>Construction & Aluminum Fabrication Level</h2>
-            <p>Manage project requests for heavy equipment rentals, aluminum door/window fabrication, and custom 3D illuminated signage.</p>
-            
-            <div class="contact-box">
-                <h3>Project Desk Contact</h3>
-                <p><strong>Direct Inquiry Email:</strong> <a href="mailto:ceo@kikomaglobal.com">ceo@kikomaglobal.com</a></p>
-                <p><strong>Services:</strong> Structural fabrication, equipment lease agreements, and storefront signage design specifications.</p>
-            </div>
-        </div>
-
-        <!-- COMPLIANCE LEVEL -->
-        <div id="complianceSection" class="section-panel hidden">
-            <button class="back-btn" onclick="showMainDashboard()">← Back to Dashboard</button>
-            <h2>Corporate Compliance & Legal Registry</h2>
-            <p>Review official registration documentation and governance credentials for Kikoma Global Investment Limited.</p>
-            
-            <div class="contact-box">
-                <h3>Institutional Verification Details</h3>
-                <p><strong>Entity:</strong> Kikoma Global Investment Limited (100% locally owned)</p>
-                <p><strong>Headquarters:</strong> Ogun State, Nigeria</p>
-                <p><strong>Registered Bodies:</strong> CAC, NEPC, SCUML, and NACCIMA Corporate Member.</p>
-            </div>
-        </div>
-
     </div>
 
-    <footer>
-        &copy; 2026 Kikoma Global Investment Limited. All Rights Reserved.
-    </footer>
+    <!-- MAIN NAVIGATION -->
+    <header class="sticky top-0 z-50 glass-header border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- BRAND LOGO -->
+                <a href="home.html" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-br from-kikoma-gold to-emerald-700 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-950/50 group-hover:scale-105 transition-transform">
+                        <span class="text-kikoma-dark font-extrabold text-2xl tracking-tighter">K</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-white font-extrabold text-lg sm:text-xl tracking-wider leading-tight">KIKOMA GLOBAL</span>
+                        <span class="text-kikoma-gold text-xs font-semibold tracking-widest uppercase">Investment Limited</span>
+                    </div>
+                </a> 
 
-    <script>
-        function showSection(sectionId) {
-            document.getElementById('mainDashboard').classList.add('hidden');
-            document.getElementById('b2bSection').classList.add('hidden');
-            document.getElementById('constructionSection').classList.add('hidden');
-            document.getElementById('complianceSection').classList.add('hidden');
+                <!-- DESKTOP MENU -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-200">
+                    <a href="home.html" class="text-kikoma-gold font-semibold">Home</a>
+                    <a href="#about" class="hover:text-kikoma-gold transition-colors">About Us</a>
+                    <a href="#products" class="hover:text-kikoma-gold transition-colors">Commodities</a>
+                    <a href="#logistics" class="hover:text-kikoma-gold transition-colors">Customs & Freight</a>
+                    <a href="#calculator" class="hover:text-kikoma-gold transition-colors">Quick Quote</a>
+                    <a href="#contact" class="hover:text-kikoma-gold transition-colors">Contact</a>
+                </nav> 
 
-            if(sectionId === 'b2b') {
-                document.getElementById('b2bSection').classList.remove('hidden');
-            } else if(sectionId === 'construction') {
-                document.getElementById('constructionSection').classList.remove('hidden');
-            } else if(sectionId === 'compliance') {
-                document.getElementById('complianceSection').classList.remove('hidden');
-            }
-        }
+                <!-- HEADER CTA -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="#calculator" class="bg-gradient-to-r from-kikoma-gold to-yellow-600 hover:from-yellow-500 hover:to-kikoma-gold text-kikoma-dark font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-kikoma-gold/25 transition-all transform hover:-translate-y-0.5 text-sm flex items-center">
+                        <i class="fas fa-file-invoice-dollar mr-2"></i> Instant RFQ Desk
+                    </a>
+                </div> 
 
-        function showMainDashboard() {
-            document.getElementById('b2bSection').classList.add('hidden');
-            document.getElementById('constructionSection').classList.add('hidden');
-            document.getElementById('complianceSection').classList.add('hidden');
-            document.getElementById('mainDashboard').classList.remove('hidden');
-        }
+                <!-- MOBILE MENU BUTTON -->
+                <button id="mobileMenuBtn" class="lg:hidden text-slate-200 text-2xl focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div> 
 
-        function logout() {
-            if(confirm("Are you sure you want to sign out?")) {
-                window.location.href = 'index.html';
-            }
-        }
-    </script>
+        <!-- MOBILE MENU DROPDOWN -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-kikoma-dark/95 border-b border-emerald-900/50 px-6 py-6 space-y-4 text-slate-200 text-base font-medium">
+            <a href="home.html" class="block text-kikoma-gold font-semibold">Home</a>
+            <a href="#about" class="block hover:text-kikoma-gold">About Us</a>
+            <a href="#products" class="block hover:text-kikoma-gold">Commodities</a>
+            <a href="#logistics" class="block hover:text-kikoma-gold">Customs & Freight</a>
+            <a href="#calculator" class="block hover:text-kikoma-gold">Quick Quote</a>
+            <a href="#contact" class="block hover:text-kikoma-gold">Contact</a>
+            <a href="#calculator" class="block w-full text-center bg-kikoma-gold text-kikoma-dark font-bold py-3 rounded-lg">Instant RFQ Desk</a>
+        </div>
+    </header> 
 
-</body>
-</html>
+    <!-- HERO SECTION -->
+    <section class="relative bg-cover bg-center min-h-[90vh] flex items-center py-20" style="background-image: url('
