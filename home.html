@@ -1,144 +1,349 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikoma Global Investment Limited | Elite West African Exporters & Trade Logistics (2030 Ready)</title>
-    <meta name="description" content="Kikoma Global Investment Limited (RC: 8918006, NEPC Certified) is a premier Nigerian exporter of Grade-1 Cocoa Beans, Raw Cashew Nuts, Cocoa Powder, and full-scale border customs logistics.">
-    <meta name="keywords" content="Cocoa beans exporter Nigeria, Raw cashew nuts supplier, Natural cocoa powder, Kikoma Global Investment Limited, Idiroko customs clearing, NEPC certified exporter">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kikoma Global Investment Limited | International Trade & Export Gateway</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: #050d0a;
+      color: #e0e6e2;
+      line-height: 1.6;
+    }
     
-    <!-- Open Graph / Social Media Preview -->
-    <meta property="og:title" content="Kikoma Global Investment Limited | Global Commodity Export & Logistics">
-    <meta property="og:description" content="NEPC Certified & CAC Registered Exporters of Grade-1 West African Cocoa, Cashew, and Trade Logistics based in Idiroko, Ogun State, Nigeria.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kikomaglobal.com">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1541356665065-22676f35dd40?auto=format&fit=crop&w=1200&q=80"> 
+    /* Top Bar */
+    .top-bar {
+      background-color: #030806;
+      border-bottom: 1px solid #14281e;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: #8fa397;
+    }
+    .top-bar a {
+      color: #d4af37;
+      text-decoration: none;
+      margin-left: 15px;
+    }
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts & Font Awesome Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    /* Navigation */
+    header {
+      background: rgba(8, 20, 15, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #1a382a;
+      padding: 15px 20px;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 1px;
+    }
+    .logo span { color: #d4af37; }
+    .nav-links a {
+      color: #c5d6cc;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover { color: #d4af37; }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        kikoma: {
-                            green: '#0F5132',
-                            gold: '#D4AF37',
-                            dark: '#0B1911',
-                            earth: '#2C1810',
-                            accent: '#198754',
-                            light: '#F8F9FA'
-                        }
-                    }
-                }
-            }
-        }
-    </script> 
+    /* Hero Section */
+    .hero {
+      padding: 70px 20px 50px;
+      text-align: center;
+      background: radial-gradient(circle at center, #0f2b1d 0%, #050d0a 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid #d4af37;
+      color: #d4af37;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      color: #ffffff;
+      margin-bottom: 15px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+    .hero h1 span { color: #d4af37; }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #9cb2a4;
+      font-size: 1rem;
+    }
 
-    <style>
-        .glass-header {
-            background: rgba(11, 25, 17, 0.9);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(11, 25, 17, 0.94) 0%, rgba(44, 24, 16, 0.88) 100%);
-        }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF 0%, #D4AF37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* Ticker Animation */
-        @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-        .animate-ticker {
-            display: flex;
-            width: 200%;
-            animation: ticker 30s linear infinite;
-        }
-    </style>
+    /* Action Buttons */
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #d4af37, #b38f24);
+      color: #050d0a;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      transition: transform 0.2s ease;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #1c3d2e;
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .btn-primary:hover, .btn-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Trust Grid */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      max-width: 1100px;
+      margin: 40px auto 0;
+      padding: 0 20px;
+    }
+    .trust-card {
+      background: #091710;
+      border: 1px solid #163023;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .trust-card h3 {
+      color: #d4af37;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    .trust-card p {
+      color: #8ba093;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Section Component */
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-header h2 {
+      font-size: 1.7rem;
+      color: #ffffff;
+    }
+    .section-header p {
+      color: #889e90;
+      font-size: 0.9rem;
+    }
+
+    /* Cards Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: #0a1b12;
+      border: 1px solid #173325;
+      padding: 25px;
+      border-radius: 10px;
+    }
+    .feature-card h3 {
+      color: #d4af37;
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+    .feature-card p {
+      color: #a3b8ab;
+      font-size: 0.88rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 10000;
+    }
+
+    /* Footer */
+    footer {
+      background: #020604;
+      border-top: 1px solid #12241b;
+      padding: 30px 20px;
+      text-align: center;
+      color: #63776b;
+      font-size: 0.82rem;
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-kikoma-gold selection:text-kikoma-dark"> 
+<body>
 
-    <!-- LIVE GLOBAL TRADE TICKER BAR -->
-    <div class="bg-kikoma-dark text-kikoma-gold text-xs py-2.5 overflow-hidden border-b border-emerald-900/60 relative">
-        <div class="animate-ticker whitespace-nowrap flex space-x-12 items-center">
-            <span class="flex items-center"><i class="fas fa-chart-line mr-2"></i> <strong>Market Update (2030 Standard):</strong> Grade-1 Fermented Cocoa Beans: Main Crop Available</span>
-            <span>•</span>
-            <span class="flex items-center"><i class="fas fa-shield-halved mr-2"></i> CAC RC: 8918006</span>
-            <span>•</span>
-            <span class="flex items-center"><i class="fas fa-certificate mr-2"></i> NEPC Certified Exporter & NACCIMA Member</span>
-            <span>•</span>
-            <span class="flex items-center"><i class="fas fa-anchor mr-2"></i> Idiroko Border Customs Clearance & Freight Active</span>
-            <span>•</span>
-            <span class="flex items-center"><i class="fas fa-globe mr-2"></i> Global Shipping Hub: Lagos & Cotonou Corridors</span>
-        </div>
+  <!-- Top Contact Bar -->
+  <div class="top-bar">
+    <div>Idiroko Border Hub, Ogun State, Nigeria</div>
+    <div>
+      <span>Email: info@kikomaglobal.com</span>
+      <a href="https://wa.me/2348123456789" target="_blank">Trade Desk WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">KIKOMA <span>GLOBAL</span></div>
+      <nav class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="catalogue.html">Warehouse & Catalog</a>
+        <a href="https://wa.me/2348123456789">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">West Africa's Trusted Trade Gateway</div>
+    <h1>Global Commodity Exporting & <br><span>International Trade Logistics</span></h1>
+    <p>Kikoma Global Investment Limited bridges West African agricultural harvests with global industries. Premium exporter of Grade-1 Raw Cocoa Beans, Natural Cocoa Powder, Cashews, and full-spectrum customs clearance management.</p>
+    
+    <div class="btn-group">
+      <a href="https://wa.me/2349133161564?text=Hello%20Kikoma%20Global%20Trade%20Desk,%20I%20want%20to%20submit%20an%20FCO%20inquiry." class="btn-primary">Submit FCO / Export Inquiry</a>
+      <a href="catalogue.html" class="btn-secondary">View Product Catalog & Warehouse</a>
+    </div>
+  </section>
+
+  <!-- Key Metrics / Trust Bar -->
+  <div class="trust-grid">
+    <div class="trust-card">
+      <h3>100%</h3>
+      <p>Export Grade Quality</p>
+    </div>
+    <div class="trust-card">
+      <h3>Grade 1</h3>
+      <p>Fermented Cocoa Beans</p>
+    </div>
+    <div class="trust-card">
+      <h3>Form NXP</h3>
+      <p>Compliant Process</p>
+    </div>
+    <div class="trust-card">
+      <h3>Idiroko Hub</h3>
+      <p>Strategic Border Ops</p>
+    </div>
+  </div>
+
+  <!-- Core Commodities Section -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Export Commodity Portfolio</h2>
+      <p>Sourced, quality-tested, and packaged to meet strict European and Asian importer standards.</p>
     </div>
 
-    <!-- MAIN NAVIGATION -->
-    <header class="sticky top-0 z-50 glass-header border-b border-white/10 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                
-                <!-- BRAND LOGO -->
-                <a href="home.html" class="flex items-center space-x-3 group">
-                    <div class="w-12 h-12 bg-gradient-to-br from-kikoma-gold to-emerald-700 rounded-xl flex items-center justify-center shadow-lg shadow-emerald-950/50 group-hover:scale-105 transition-transform">
-                        <span class="text-kikoma-dark font-extrabold text-2xl tracking-tighter">K</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-white font-extrabold text-lg sm:text-xl tracking-wider leading-tight">KIKOMA GLOBAL</span>
-                        <span class="text-kikoma-gold text-xs font-semibold tracking-widest uppercase">Investment Limited</span>
-                    </div>
-                </a> 
+    <div class="grid-3">
+      <div class="feature-card">
+        <h3>Grade-1 Raw Cocoa Beans</h3>
+        <p>Fully fermented, dried, and slate-tested Grade-1 Nigerian cocoa beans packed in standard 65kg jute bags for international chocolate refiners.</p>
+      </div>
 
-                <!-- DESKTOP MENU -->
-                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-200">
-                    <a href="home.html" class="text-kikoma-gold font-semibold">Home</a>
-                    <a href="#about" class="hover:text-kikoma-gold transition-colors">About Us</a>
-                    <a href="#products" class="hover:text-kikoma-gold transition-colors">Commodities</a>
-                    <a href="#logistics" class="hover:text-kikoma-gold transition-colors">Customs & Freight</a>
-                    <a href="#calculator" class="hover:text-kikoma-gold transition-colors">Quick Quote</a>
-                    <a href="#contact" class="hover:text-kikoma-gold transition-colors">Contact</a>
-                </nav> 
+      <div class="feature-card">
+        <h3>Natural 10/12 Cocoa Powder</h3>
+        <p>Pure, non-alkalized natural cocoa powder featuring 10-12% fat content, suitable for industrial food processing, beverages, and confectionery.</p>
+      </div>
 
-                <!-- HEADER CTA -->
-                <div class="hidden sm:flex items-center space-x-4">
-                    <a href="#calculator" class="bg-gradient-to-r from-kikoma-gold to-yellow-600 hover:from-yellow-500 hover:to-kikoma-gold text-kikoma-dark font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-kikoma-gold/25 transition-all transform hover:-translate-y-0.5 text-sm flex items-center">
-                        <i class="fas fa-file-invoice-dollar mr-2"></i> Instant RFQ Desk
-                    </a>
-                </div> 
+      <div class="feature-card">
+        <h3>Raw Cashew Nuts & Derivatives</h3>
+        <p>Premium raw cashew nuts (RCN) harvested with optimal kernel out-turn ratio (KOR), alongside cassava starch and agricultural derivatives.</p>
+      </div>
+    </div>
+  </section>
 
-                <!-- MOBILE MENU BUTTON -->
-                <button id="mobileMenuBtn" class="lg:hidden text-slate-200 text-2xl focus:outline-none">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div> 
+  <!-- Regulatory Compliance & Authorizations -->
+  <section class="section">
+    <div class="section-header">
+      <h2>Regulatory & Accreditation Framework</h2>
+      <p>Fully accredited and authorized across national and regional trade authorities.</p>
+    </div>
 
-        <!-- MOBILE MENU DROPDOWN -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-kikoma-dark/95 border-b border-emerald-900/50 px-6 py-6 space-y-4 text-slate-200 text-base font-medium">
-            <a href="home.html" class="block text-kikoma-gold font-semibold">Home</a>
-            <a href="#about" class="block hover:text-kikoma-gold">About Us</a>
-            <a href="#products" class="block hover:text-kikoma-gold">Commodities</a>
-            <a href="#logistics" class="block hover:text-kikoma-gold">Customs & Freight</a>
-            <a href="#calculator" class="block hover:text-kikoma-gold">Quick Quote</a>
-            <a href="#contact" class="block hover:text-kikoma-gold">Contact</a>
-            <a href="#calculator" class="block w-full text-center bg-kikoma-gold text-kikoma-dark font-bold py-3 rounded-lg">Instant RFQ Desk</a>
-        </div>
-    </header> 
+    <div class="grid-3">
+      <div class="feature-card">
+        <h3>CAC Registered</h3>
+        <p>Officially incorporated under the Corporate Affairs Commission (RC: 8918006) with 100% local equity shareholding structure.</p>
+      </div>
 
-    <!-- HERO SECTION -->
-    <section class="relative bg-cover bg-center min-h-[90vh] flex items-center py-20" style="background-image: url('
+      <div class="feature-card">
+        <h3>NEPC Certified</h3>
+        <p>Licensed Exporter Registration Certificate holder issued by the Nigerian Export Promotion Council for international trade execution.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>NACCIMA Member</h3>
+        <p>Affiliated with the Nigerian Association of Chambers of Commerce, Industry, Mines and Agriculture and Yewa Chamber of Commerce.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating WhatsApp Trade Desk -->
+  <a href="https://wa.me/2349133161564?text=Hello%20Kikoma%20Global%20Trade%20Desk,%20I%20have%20an%20export%20inquiry." class="whatsapp-float" target="_blank">
+    &#128172; Chat Trade Desk
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; Kikoma Global Investment Limited. All rights reserved.</p>
+    <p>Head Office & Operations Hub: Idiroko, Ipokia LGA, Ogun State, Nigeria.</p>
+  </footer>
+
+</body>
+</html>

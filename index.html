@@ -298,4 +298,309 @@
                         </div>
                         <div class="p-8">
                             <h3 class="text-2xl font-bold text-slate-900 mb-3">West African Raw Cocoa Beans</h3>
+    <!-- ... existing line 301 and other content above ... -->
+    <p class="text-slate-600 text-sm">...</p>
+
+    <!-- PASTE THE FCO MODAL CODE HERE -->
+
+  </body>
+</html>
                             <p class="text-slate-600 text-sm leadi
+                            <!-- ==================== FCO INQUIRY MODAL ==================== -->
+<div id="fcoModal" class="fco-modal-overlay">
+  <div class="fco-modal-card">
+    <button class="fco-close-btn" onclick="closeFcoModal()">&times;</button>
+    
+    <div class="fco-header">
+      <h2>Submit FCO / Export Inquiry</h2>
+      <p>Kikoma Global Investment Limited &bull; Trade Desk Hub</p>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="fco-progress">
+      <div class="fco-step-indicator active" id="stepInd1">1. Product</div>
+      <div class="fco-step-indicator" id="stepInd2">2. Logistics</div>
+      <div class="fco-step-indicator" id="stepInd3">3. Contact</div>
+    </div>
+
+    <form id="fcoForm" onsubmit="submitFcoInquiry(event)">
+      <!-- STEP 1: Commodity & Specs -->
+      <div class="fco-step-content active" id="fcoStep1">
+        <label for="fcoProduct">Commodity Required *</label>
+        <select id="fcoProduct" required>
+          <option value="" disabled selected>Select Commodity</option>
+          <option value="Grade-1 Raw Cocoa Beans">Grade-1 Raw Cocoa Beans</option>
+          <option value="Natural 10/12 Cocoa Powder">Natural 10/12 Cocoa Powder</option>
+          <option value="Raw Cashew Nuts (RCN)">Raw Cashew Nuts (RCN)</option>
+          <option value="Cassava Derivative / Starch">Cassava Derivatives / Starch</option>
+          <option value="Custom Agricultural Commodity">Other Custom Commodity</option>
+        </select>
+
+        <label for="fcoQuantity">Quantity (Metric Tons) *</label>
+        <input type="number" id="fcoQuantity" placeholder="e.g. 25, 50, 100 MT" min="1" required>
+
+        <label for="fcoPackaging">Preferred Packaging</label>
+        <select id="fcoPackaging">
+          <option value="65kg Jute Bags (Standard Cocoa)">65kg Standard Jute Bags</option>
+          <option value="25kg Kraft Paper Bags (Powder)">25kg Kraft Paper Bags</option>
+          <option value="80kg Jute Bags (Cashew)">80kg Jute Bags</option>
+          <option value="Bulk Bags / Custom Container">Bulk Containers / Custom</option>
+        </select>
+
+        <div class="fco-btn-group">
+          <button type="button" class="fco-next-btn" onclick="nextFcoStep(2)">Next: Shipping Details &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Shipping & Delivery Terms -->
+      <div class="fco-step-content" id="fcoStep2">
+        <label for="fcoIncoterm">Incoterms / Delivery Method *</label>
+        <select id="fcoIncoterm" required>
+          <option value="FOB (Free On Board - Apapa/Tin Can Port)">FOB - Apapa / Tin Can Port, Lagos</option>
+          <option value="CIF (Cost, Insurance & Freight)">CIF - Destination Port</option>
+          <option value="Cross-Border Land Logistics (Idiroko Corridor)">Cross-Border Overland (ECOWAS / Idiroko Corridor)</option>
+        </select>
+
+        <label for="fcoDestination">Destination Port & Country *</label>
+        <input type="text" id="fcoDestination" placeholder="e.g. Port of Rotterdam, Netherlands" required>
+
+        <label for="fcoTargetPrice">Target Price / Notes (Optional)</label>
+        <textarea id="fcoTargetPrice" rows="3" placeholder="Specify any target pricing, inspection requirements (SGS), or payment terms (L/C, T/T)..."></textarea>
+
+        <div class="fco-btn-group">
+          <button type="button" class="fco-prev-btn" onclick="prevFcoStep(1)">&larr; Back</button>
+          <button type="button" class="fco-next-btn" onclick="nextFcoStep(3)">Next: Buyer Details &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Company & Contact Information -->
+      <div class="fco-step-content" id="fcoStep3">
+        <label for="fcoCompanyName">Buyer Company Name *</label>
+        <input type="text" id="fcoCompanyName" placeholder="e.g. Global Trade Commodities Ltd" required>
+
+        <label for="fcoContactName">Contact Person Name *</label>
+        <input type="text" id="fcoContactName" placeholder="Full Name" required>
+
+        <label for="fcoEmail">Official Corporate Email *</label>
+        <input type="email" id="fcoEmail" placeholder="buyer@company.com" required>
+
+        <label for="fcoPhone">WhatsApp / Phone Number *</label>
+        <input type="tel" id="fcoPhone" placeholder="+1 234 567 8900" required>
+
+        <div class="fco-btn-group">
+          <button type="button" class="fco-prev-btn" onclick="prevFcoStep(2)">&larr; Back</button>
+          <button type="submit" class="fco-submit-btn">Send Inquiry to Trade Desk &#10148;</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<style>
+  /* FCO Modal Overlay & Container */
+  .fco-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+  .fco-modal-card {
+    background: #0e2218;
+    border: 1px solid #1c352a;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 520px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    color: #e0e0e0;
+    font-family: inherit;
+  }
+  .fco-close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    background: none; border: none;
+    color: #d4af37; font-size: 28px;
+    cursor: pointer;
+  }
+  .fco-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .fco-header h2 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+  }
+  .fco-header p {
+    color: #d4af37;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Progress Indicators */
+  .fco-progress {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #1c352a;
+    padding-bottom: 10px;
+  }
+  .fco-step-indicator {
+    font-size: 0.8rem;
+    color: #5d7568;
+    font-weight: bold;
+  }
+  .fco-step-indicator.active {
+    color: #d4af37;
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 8px;
+  }
+
+  /* Form Controls */
+  .fco-step-content { display: none; }
+  .fco-step-content.active { display: block; }
+  
+  .fco-modal-card label {
+    display: block;
+    margin: 12px 0 5px;
+    font-size: 0.85rem;
+    color: #b0c2b8;
+    text-align: left;
+  }
+  .fco-modal-card input, 
+  .fco-modal-card select, 
+  .fco-modal-card textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: #07130e;
+    border: 1px solid #1c352a;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+  .fco-modal-card input:focus, 
+  .fco-modal-card select:focus, 
+  .fco-modal-card textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+  }
+
+  /* Button Styles */
+  .fco-btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .fco-trigger-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #d4af37, #aa8311);
+    color: #07130e;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  }
+  .fco-next-btn, .fco-submit-btn {
+    flex: 2;
+    padding: 11px;
+    background: #d4af37;
+    color: #07130e;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .fco-prev-btn {
+    flex: 1;
+    padding: 11px;
+    background: transparent;
+    border: 1px solid #1c352a;
+    color: #a0b2a6;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  function openFcoModal() {
+    document.getElementById('fcoModal').style.display = 'flex';
+  }
+  function closeFcoModal() {
+    document.getElementById('fcoModal').style.display = 'none';
+  }
+
+  function nextFcoStep(step) {
+    // Basic validation before moving forward
+    if (step === 2) {
+      if (!document.getElementById('fcoProduct').value || !document.getElementById('fcoQuantity').value) {
+        alert('Please select a commodity and volume before proceeding.');
+        return;
+      }
+    }
+    if (step === 3) {
+      if (!document.getElementById('fcoIncoterm').value || !document.getElementById('fcoDestination').value) {
+        alert('Please fill in destination port and shipping terms.');
+        return;
+      }
+    }
+
+    document.querySelectorAll('.fco-step-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.fco-step-indicator').forEach(el => el.classList.remove('active'));
+
+    document.getElementById('fcoStep' + step).classList.add('active');
+    document.getElementById('stepInd' + step).classList.add('active');
+  }
+
+  function prevFcoStep(step) {
+    document.querySelectorAll('.fco-step-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.fco-step-indicator').forEach(el => el.classList.remove('active'));
+
+    document.getElementById('fcoStep' + step).classList.add('active');
+    document.getElementById('stepInd' + step).classList.add('active');
+  }
+
+  function submitFcoInquiry(e) {
+    e.preventDefault();
+
+    const product = document.getElementById('fcoProduct').value;
+    const quantity = document.getElementById('fcoQuantity').value;
+    const packaging = document.getElementById('fcoPackaging').value;
+    const incoterm = document.getElementById('fcoIncoterm').value;
+    const destination = document.getElementById('fcoDestination').value;
+    const company = document.getElementById('fcoCompanyName').value;
+    const contact = document.getElementById('fcoContactName').value;
+    const email = document.getElementById('fcoEmail').value;
+    const phone = document.getElementById('fcoPhone').value;
+    const notes = document.getElementById('fcoTargetPrice').value;
+
+    const message = `*OFFICIAL FCO / EXPORT INQUIRY*%0A%0A` +
+      `*Commodity:* ${product}%0A` +
+      `*Volume:* ${quantity} Metric Tons%0A` +
+      `*Packaging:* ${packaging}%0A` +
+      `*Incoterms:* ${incoterm}%0A` +
+      `*Destination:* ${destination}%0A` +
+      `*Notes/Target:* ${notes ? notes : 'N/A'}%0A%0A` +
+      `*Company:* ${company}%0A` +
+      `*Contact:* ${contact}%0A` +
+      `*Email:* ${email}%0A` +
+      `*Phone:* ${phone}`;
+
+    // Send formatted request to WhatsApp Trade Desk
+    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+    closeFcoModal();
+  }
+</script>
+<!-- ==================== END FCO MODAL ==================== -->
