@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warehouse Operations & Product Catalog - Kikoma Global Investment Limited</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #07130e;
+      color: #e0e0e0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    header {
+      max-width: 1000px;
+      margin: 0 auto 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1c352a;
+      padding-bottom: 15px;
+    }
+    .brand-title {
+      color: #d4af37;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 8px 18px;
+      background-color: #d4af37;
+      color: #07130e;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover {
+      background-color: #f1c40f;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .hero-text {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    .hero-text h1 {
+      color: #ffffff;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    .hero-text p {
+      color: #a0b2a6;
+      font-size: 0.95rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .card {
+      background-color: #0e2218;
+      border: 1px solid #1c352a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+    .card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .card-info {
+      padding: 15px;
+    }
+    .card-info h3 {
+      color: #d4af37;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .card-info p {
+      color: #b0c2b8;
+      font-size: 0.85rem;
+    }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      border-top: 1px solid #1c352a;
+      margin-top: 20px;
+      color: #7a8f83;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-title">Kikoma Global</div>
+    <a href="index.html" class="back-btn">&larr; Back to Home</a>
+  </header>
+
+  <div class="container">
+    <div class="hero-text">
+      <h1>Warehouse Operations & Export Commodities</h1>
+      <p>Direct view of our Idiroko storage facilities, precision weighing equipment, and export-ready bagged commodities.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- Photo 1 -->
+      <div class="card">
+        <img src="warehouse1.jpg" alt="Bagged Export Stock and Weighing Station">
+        <div class="card-info">
+          <h3>Precision Quality & Weight Station</h3>
+          <p>Export-grade bagged commodity inventory calibrated with digital weighing scales prior to dispatch.</p>
+        </div>
+      </div>
+
+      <!-- Photo 2 -->
+      <div class="card">
+        <img src="warehouse2.jpg" alt="Commodity Warehouse Stacking">
+        <div class="card-info">
+          <h3>Warehouse Storage Operations</h3>
+          <p>Stacked Grade-1 export commodity bags maintained under controlled environmental conditions.</p>
+        </div>
+      </div>
+
+      <!-- Photo 3 -->
+      <div class="card">
+        <img src="warehouse3.jpg" alt="Warehouse Bag Stacks">
+        <div class="card-info">
+          <h3>Bulk Storage Stacks</h3>
+          <p>Organized inventory stockpiles ready for export quality verification and customs documentation.</p>
+        </div>
+      </div>
+
+      <!-- Photo 4 -->
+      <div class="card">
+        <img src="warehouse4.jpg" alt="Calibrated Scale and Stock">
+        <div class="card-info">
+          <h3>Calibrated Trade Scale</h3>
+          <p>Ensuring full weight accuracy for every batch bound for international logistics routes.</p>
+        </div>
+      </div>
+
+      <!-- Photo 5 -->
+      <div class="card">
+        <img src="warehouse5.jpg" alt="Warehouse Commodity Bags">
+        <div class="card-info">
+          <h3>Export-Ready Bags</h3>
+          <p>Sealed jute bags stored at our Idiroko hub for fast border transit and delivery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; Kikoma Global Investment Limited. All rights reserved.
+  </footer>
+
+</body>
+</html>
