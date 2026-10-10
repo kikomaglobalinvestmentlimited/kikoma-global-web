@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikoma Global Investment Limited | Premier Nigerian Commodity Exporters & Trade Logistics</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kikoma Global Investment Limited | Premier Nigerian Commodity Exporters & Trade Logistics</title>
+  <meta name="description" content="Kikoma Global Investment Limited - Licensed exporter of Grade-1 Nigerian Raw Cocoa Beans, Natural Cocoa Powder, and cross-border trade logistics operating from Idiroko, Ogun State.">
+</head>
     <meta name="description" content="Kikoma Global Investment Limited (RC: 8918006, NEPC Certified) is a premier Nigerian exporter of Grade-1 West African Cocoa Beans, Premium Natural 10/12 Cocoa Powder, and full-scale customs clearing services.">
     <meta name="keywords" content="Cocoa beans exporter Nigeria, Natural cocoa powder 10/12, Kikoma Global Investment Limited, Idiroko customs clearing agency, NEPC registered cocoa exporter, West Africa agricultural export">
     
@@ -570,7 +572,40 @@
 
     document.getElementById('fcoStep' + step).classList.add('active');
     document.getElementById('stepInd' + step).classList.add('active');
+    function submitFcoInquiry(e) {
+    e.preventDefault();
+
+    const product = document.getElementById('fcoProduct').value;
+    const quantity = document.getElementById('fcoQuantity').value;
+    const packaging = document.getElementById('fcoPackaging').value;
+    const incoterm = document.getElementById('fcoIncoterm').value;
+    const destination = document.getElementById('fcoDestination').value;
+    const company = document.getElementById('fcoCompanyName').value;
+    const contact = document.getElementById('fcoContactName').value;
+    const email = document.getElementById('fcoEmail').value;
+    const phone = document.getElementById('fcoPhone').value;
+    const notes = document.getElementById('fcoTargetPrice').value;
+
+    const message = `*OFFICIAL FCO / EXPORT INQUIRY*%0A%0A` +
+      `*Commodity:* ${product}%0A` +
+      `*Volume:* ${quantity} Metric Tons%0A` +
+      `*Packaging:* ${packaging}%0A` +
+      `*Incoterms:* ${incoterm}%0A` +
+      `*Destination:* ${destination}%0A` +
+      `*Notes/Target:* ${notes ? notes : 'N/A'}%0A%0A` +
+      `*Company:* ${company}%0A` +
+      `*Contact:* ${contact}%0A` +
+      `*Email:* ${email}%0A` +
+      `*Phone:* ${phone}`;
+
+    // Sends formatted FCO inquiry directly to WhatsApp Trade Desk
+    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+    closeFcoModal();
   }
+</script>
+</body>
+</html>
+
 
   function submitFcoInquiry(e) {
     e.preventDefault();
