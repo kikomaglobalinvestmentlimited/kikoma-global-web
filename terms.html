@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="stylesheet" href="style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Terms of Trade & Legal | Kikoma Global Investment Limited</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-primary: #050f0b;
+      --bg-secondary: #0a1f16;
+      --bg-card: #0e291e;
+      --border-color: #1c3f30;
+      --gold: #d4af37;
+      --gold-hover: #f1c40f;
+      --text-main: #f0f4f1;
+      --text-muted: #9fb3a6;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      background-color: var(--bg-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--gold), #aa820a);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .brand-title {
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background-color: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      background-color: var(--gold);
+      color: var(--bg-primary);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 20px;
+      flex: 1;
+    }
+
+    /* Hero Section */
+    .terms-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .terms-hero h1 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .terms-hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Terms Content Card */
+    .terms-content {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .terms-section {
+      margin-bottom: 30px;
+    }
+
+    .terms-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .terms-section h2 {
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+
+    .terms-section p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .terms-section ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .terms-section li {
+      margin-bottom: 6px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <header>
+    <div class="brand-container">
+      <div class="brand-logo">KG</div>
+      <div class="brand-title">Kikoma Global</div>
+    </div>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+  </header>
+
+  <div class="container">
+    
+    <section class="terms-hero">
+      <div class="hero-badge"><i class="fa-solid fa-scale-balanced"></i> Legal Framework</div>
+      <h1>Terms of Trade & Export Conditions</h1>
+      <p>Governing policies, weighing protocols, and warehousing standards for Kikoma Global Investment Limited.</p>
+    </section>
+
+    <div class="terms-content">
+      
+      <div class="terms-section">
+        <h2>1. Scope & Application</h2>
+        <p>These Terms of Trade govern all commodity storage, bulk bagging, digital scale certification, and cross-border export logistics services provided by Kikoma Global Investment Limited at our Idiroko storage complex.</p>
+      </div>
+
+      <div class="terms-section">
+        <h2>2. Commodity Quality & Packaging</h2>
+        <p>All agricultural produce and solid mineral aggregates processed or stored within our facilities must meet Grade-1 export standards. Commodities are packaged in secure, brand-tagged jute bags or heavy-duty woven sacks under strict moisture and pest-controlled environmental protocols.</p>
+      </div>
+
+      <div class="terms-section">
+        <h2>3. Certified Weighing & Inspection</h2>
+        <p>Weight verification is conducted using calibrated heavy-duty industrial trade scales at our Idiroko hub. Certified pre-shipment inspection reports are issued prior to container stuffing and customs dispatch.</p>
+      </div>
+
+      <div class="terms-section">
+        <h2>4. Liability & Storage Conditions</h2>
+        <p>While Kikoma Global maintains 24/7 facility security and environmental monitoring, clients are advised to secure comprehensive cargo and transit insurance for international shipping routes.</p>
+      </div>
+
+      <div class="terms-section">
+        <h2>5. Contact & Legal Inquiries</h2>
+        <p>For inquiries regarding commercial contracts, export compliance, or legal documentation, please contact our executive office directly:</p>
+        <ul>
+          <li><strong>Executive Office:</strong> ceo@kikomaglobal.com</li>
+          <li><strong>Sales & Commercial Desk:</strong> Sales@kikomaglobal.com</li>
+          <li><strong>Export & Logistics Lead:</strong> exportlead@kikomaglobal.com</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Idiroko Hub Legal & Terms.
+  </footer>
+
+</body>
+</html>

@@ -1,79 +1,274 @@
-/* --- Reset & Global Base Styles --- */
+/* ==========================================================================
+   Kikoma Global Investment Limited - Master Enterprise Stylesheet
+   Theme: Luxury Dark Emerald & Gold (#050f0b / #d4af37)
+   ========================================================================== */
+
+:root {
+  --bg-primary: #050f0b;
+  --bg-secondary: #0a1f16;
+  --bg-card: #0e291e;
+  --border-color: #1c3f30;
+  --gold: #d4af37;
+  --gold-hover: #f1c40f;
+  --text-main: #f0f4f1;
+  --text-muted: #9fb3a6;
+  --success: #2ecc71;
+  --whatsapp: #25d366;
+  --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Resets & Box Sizing */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #f4f7f6;
-  color: #333333;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
   line-height: 1.6;
 }
 
-/* --- Navigation Menu Styling --- */
-.main-menu {
-  background-color: #1b263b; /* Deep, professional corporate color */
-  padding: 1rem 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+/* Ambient Background Glow */
+.ambient-glow {
+  position: fixed;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Universal Header & Navigation */
+header {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 100;
 }
 
-.main-menu ul {
-  list-style: none;
+.brand-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 12px;
 }
 
-.main-menu li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Hover effect when mouse or finger touches the menu item */
-.main-menu li a:hover,
-.main-menu li a.active {
-  background-color: #415a77;
-  color: #ffffff;
-}
-
-/* --- Content Container --- */
-main, .container {
-  max-width: 1100px;
-  margin: 2.5rem auto;
-  padding: 0 1.5rem;
-  background: #ffffff;
+.brand-logo {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--gold), #aa820a);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-primary);
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
 }
 
-/* --- Mobile Responsiveness (For Phones & Spck Editor Preview) --- */
-@media (max-width: 768px) {
-  .main-menu {
-    padding: 0.8rem 1rem;
-  }
-  
-  .main-menu ul {
-    flex-direction: column;
-    gap: 0.6rem;
-    text-align: center;
-  }
+.brand-title {
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: 'Playfair Display', serif;
+}
 
-  .main-menu li a {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-  }
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1.5px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.back-btn:hover, .back-btn:active {
+  background-color: var(--gold);
+  color: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* Universal Main Container */
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 20px;
+  flex: 1;
+}
+
+/* Universal Hero Styling */
+.section-hero, .hero-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--gold);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+}
+
+/* Universal Cards & Grid Layouts */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.enterprise-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 35px 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.enterprise-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.card-icon {
+  width: 65px;
+  height: 65px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+/* Form Controls & Inputs */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-control, .form-field {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-control:focus, .form-field:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+textarea.form-control, textarea.form-field {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Action Buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--gold);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.btn-gold:hover, .btn-gold:active {
+  background-color: var(--gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Universal Footer */
+footer {
+  text-align: center;
+  padding: 25px 20px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  background-color: var(--bg-secondary);
+  margin-top: auto;
 }

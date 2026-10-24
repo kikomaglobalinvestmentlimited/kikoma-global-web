@@ -1,138 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
-<head<head>
+<head><link rel="stylesheet" href="style.css">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Page Title</title>
-  <link rel="stylesheet" href="style.css">
-</head>
->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Kikoma Global Investment Limited</title>
+  <title>About Us | Kikoma Global Investment Limited</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #050d0a;
-      color: #e0e6e2;
-      line-height: 1.6;
-      padding: 20px;
+    :root {
+      --bg-primary: #050f0b;
+      --bg-secondary: #0a1f16;
+      --bg-card: #0e291e;
+      --border-color: #1c3f30;
+      --gold: #d4af37;
+      --gold-hover: #f1c40f;
+      --text-main: #f0f4f1;
+      --text-muted: #9fb3a6;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Header */
     header {
-      max-width: 1000px;
-      margin: 0 auto 30px;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #163023;
-      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
     }
-    .brand-title {
-      color: #d4af37;
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--gold), #aa820a);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-weight: 700;
       font-size: 1.2rem;
-      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .brand-title {
+      color: var(--gold);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background-color: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      background-color: var(--gold);
+      color: var(--bg-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 20px;
+      flex: 1;
+    }
+
+    /* Hero Section */
+    .about-hero {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-bottom: 15px;
     }
-    .back-btn {
-      display: inline-block;
-      padding: 8px 18px;
-      background-color: #d4af37;
-      color: #050d0a;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 0.9rem;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .hero-text {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-    .hero-text h1 {
+
+    .about-hero h1 {
       color: #ffffff;
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
-    .hero-text p {
-      color: #9cb2a4;
+
+    .about-hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    /* Story & Grid Section */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .story-content h2 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .story-content p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .story-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gold);
+    }
+
+    .stat-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .stat-item h3 {
+      color: var(--gold);
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 5px;
+    }
+
+    .stat-item p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0;
+    }
+
+    /* Core Pillars Section */
+    .pillars-section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
       font-size: 1rem;
     }
-    .content-box {
-      background-color: #0a1b12;
-      border: 1px solid #173325;
-      padding: 25px;
-      border-radius: 10px;
-      margin-bottom: 25px;
-    }
-    .content-box h2 {
-      color: #d4af37;
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-    }
-    .content-box p {
-      color: #a3b8ab;
-      font-size: 0.95rem;
-      margin-bottom: 12px;
-    }
-    .grid-2 {
+
+    .pillars-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 25px;
     }
+
+    .pillar-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 35px 25px;
+      transition: var(--transition);
+      text-align: left;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .pillar-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .pillar-card h3 {
+      color: #ffffff;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .pillar-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 20px 0;
-      border-top: 1px solid #163023;
-      margin-top: 40px;
-      color: #63776b;
+      padding: 25px 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
       font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
+  <div class="ambient-glow"></div>
+
   <header>
-    <div class="brand-title">Kikoma Global</div>
-    <a href="index.html" class="back-btn">&larr; Home</a>
+    <div class="brand-container">
+      <div class="brand-logo">KG</div>
+      <div class="brand-title">Kikoma Global</div>
+    </div>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
   </header>
 
   <div class="container">
-    <div class="hero-text">
-      <h1>About Kikoma Global Investment Limited</h1>
-      <p>West Africa's Premier Gateway for Agricultural Commodities & Cross-Border Freight Operations</p>
-    </div>
+    
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="hero-badge"><i class="fa-solid fa-globe"></i> Global Standards, Local Expertise</div>
+      <h1>Engineering Excellence in Export & Logistics</h1>
+      <p>Kikoma Global Investment Limited is a premier leader in cross-border commodity storage, precision weighing systems, and international trade supply chain management anchored in Idiroko.</p>
+    </section>
 
-    <div class="content-box">
-      <h2>Corporate Profile</h2>
-      <p>Kikoma Global Investment Limited is an accredited Nigerian corporate enterprise headquartered in Idiroko, Ipokia Local Government Area, Ogun State. We specialize in international agricultural commodity sourcing, processing quality control, export documentation, and customs clearance logistics.</p>
-      <p>Positioned along the strategic trade corridor of Nigeria’s western border, our export operations connect global industries in Europe, Asia, and America with Grade-1 West African harvests.</p>
-    </div>
+    <!-- Story & Stats Section -->
+    <section class="story-grid">
+      <div class="story-content">
+        <h2>Our Heritage & Vision</h2>
+        <p>Strategically positioned at the gateway of international commerce in Idiroko, Kikoma Global Investment Limited has grown into a trusted powerhouse for agricultural and mineral commodity aggregation, warehousing, and seamless border logistics.</p>
+        <p>Our commitment relies on rigorous quality assurance, rigorous inventory accountability, and state-of-the-art facilities designed to meet the strict standards required by global destination markets.</p>
+      </div>
+      <div class="story-card">
+        <h3 style="color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px;">Operational Excellence</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0;">We bridge producers and global buyers through transparent handling, optimized storage protocols, and certified digital scale weighing stations that guarantee total client trust.</p>
+        
+        <div class="stat-list">
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Verified Compliance</p>
+          </div>
+          <div class="stat-item">
+            <h3>Grade-1</h3>
+            <p>Export Standards</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="grid-2">
-      <div class="content-box">
-        <h2>Regulatory Compliance</h2>
-        <p><strong>CAC Registration:</strong> RC: 8918006 (100% locally owned)</p>
-        <p><strong>NEPC Export License:</strong> Authorized Nigerian Export Promotion Council Exporter</p>
-        <p><strong>SCUML Verification:</strong> SCUML Compliant</p>
-        <p><strong>Chamber Membership:</strong> NACCIMA & Yewa Chamber of Commerce & Industry</p>
+    <!-- Pillars Section -->
+    <section class="pillars-section">
+      <div class="section-title">
+        <h2>Core Operational Pillars</h2>
+        <p>The guiding principles that dictate every layer of our warehousing and export framework.</p>
       </div>
 
-      <div class="content-box">
-        <h2>Core Values</h2>
-        <p><strong>Quality Assurance:</strong> Strict laboratory testing and slate analysis for all commodity batches.</p>
-        <p><strong>Weight Precision:</strong> Digital scale calibration for every single jute bag prior to export.</p>
-        <p><strong>Reliability:</strong> Seamless export documentation and Form NXP compliance.</p>
+      <div class="pillars-grid">
+        
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h3>Precision Weighing & QA</h3>
+          <p>Every batch of commodity passing through our facilities is meticulously evaluated and weighed on certified heavy-duty digital scales to eliminate discrepancy.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fa-solid fa-warehouse"></i></div>
+          <h3>Controlled Storage Hubs</h3>
+          <p>Our high-capacity Idiroko storage complexes maintain optimal environmental standards, protecting stock integrity against moisture and pests.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <h3>Streamlined Logistics</h3>
+          <p>Accelerated turnaround times for container loading, phytosanitary verification, and customs documentation to ensure smooth international transport.</p>
+        </div>
+
       </div>
-    </div>
+    </section>
+
   </div>
 
   <footer>
-    &copy; Kikoma Global Investment Limited. All rights reserved.
+    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Professional Warehouse & Export Operations.
   </footer>
 
 </body>

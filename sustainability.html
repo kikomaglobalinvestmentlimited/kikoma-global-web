@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="stylesheet" href="style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sustainability & ESG | Kikoma Global Investment Limited</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-primary: #050f0b;
+      --bg-secondary: #0a1f16;
+      --bg-card: #0e291e;
+      --border-color: #1c3f30;
+      --gold: #d4af37;
+      --gold-hover: #f1c40f;
+      --text-main: #f0f4f1;
+      --text-muted: #9fb3a6;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      background-color: var(--bg-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--gold), #aa820a);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .brand-title {
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background-color: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      background-color: var(--gold);
+      color: var(--bg-primary);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 20px;
+      flex: 1;
+    }
+
+    /* Hero Section */
+    .sustainability-hero {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .sustainability-hero h1 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .sustainability-hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    /* Grid Layout */
+    .sustainability-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .sustainability-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 35px 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sustainability-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .card-icon {
+      width: 65px;
+      height: 65px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.6rem;
+      margin-bottom: 25px;
+    }
+
+    .sustainability-card h3 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .sustainability-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .esg-list {
+      list-style: none;
+      border-top: 1px solid var(--border-color);
+      padding-top: 15px;
+    }
+
+    .esg-list li {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .esg-list li i {
+      color: var(--gold);
+      font-size: 0.75rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <header>
+    <div class="brand-container">
+      <div class="brand-logo">KG</div>
+      <div class="brand-title">Kikoma Global</div>
+    </div>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+  </header>
+
+  <div class="container">
+    
+    <section class="sustainability-hero">
+      <div class="hero-badge"><i class="fa-solid fa-leaf"></i> Environmental, Social & Governance</div>
+      <h1>Commitment to Sustainable Trade & Ethics</h1>
+      <p>At Kikoma Global Investment Limited, we believe long-term success in international trade is rooted in responsible stewardship, ethical farming alliances, and environmentally conscious warehouse operations.</p>
+    </section>
+
+    <div class="sustainability-grid">
+      
+      <!-- Pillar 1 -->
+      <div class="sustainability-card">
+        <div class="card-icon"><i class="fa-solid fa-seedling"></i></div>
+        <h3>Responsible Agricultural Sourcing</h3>
+        <p>We partner directly with certified local farming cooperatives that implement ethical land management, fair labor practices, and zero-deforestation guidelines.</p>
+        <ul class="esg-list">
+          <li><i class="fa-solid fa-check"></i> Fair-Trade Farmer Compensation</li>
+          <li><i class="fa-solid fa-check"></i> Traceable Farm-to-Hub Supply Chains</li>
+          <li><i class="fa-solid fa-check"></i> Support for Organic Crop Yields</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="sustainability-card">
+        <div class="card-icon"><i class="fa-solid fa-warehouse"></i></div>
+        <h3>Green Warehousing Operations</h3>
+        <p>Our Idiroko storage facilities utilize energy-efficient architectural designs, natural ventilation protocols, and eco-friendly moisture preservation methods.</p>
+        <ul class="esg-list">
+          <li><i class="fa-solid fa-check"></i> Reduced Carbon Footprint Storage</li>
+          <li><i class="fa-solid fa-check"></i> Biodegradable & Jute Packaging Standards</li>
+          <li><i class="fa-solid fa-check"></i> Energy-Optimized Logistics Hub</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="sustainability-card">
+        <div class="card-icon"><i class="fa-solid fa-people-group"></i></div>
+        <h3>Community & Workforce Empowerment</h3>
+        <p>We invest directly in the Idiroko community by providing specialized vocational training, fair employment opportunities, and strict workplace safety protocols.</p>
+        <ul class="esg-list">
+          <li><i class="fa-solid fa-check"></i> Local Skill Development Programs</li>
+          <li><i class="fa-solid fa-check"></i> Rigorous Occupational Health & Safety</li>
+          <li><i class="fa-solid fa-check"></i> Inclusive Employment Opportunities</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Idiroko Hub Sustainability ESG.
+  </footer>
+
+</body>
+</html>

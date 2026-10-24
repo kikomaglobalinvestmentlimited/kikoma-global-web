@@ -3,119 +3,537 @@
 <head><link rel="stylesheet" href="style.css">
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us - Kikoma Global Investment Limited</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Contact Us | Kikoma Global Investment Limited</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #050d0a;
-      color: #e0e6e2;
-      line-height: 1.6;
-      padding: 20px;
+    :root {
+      --bg-primary: #050f0b;
+      --bg-secondary: #0a1f16;
+      --bg-card: #0e291e;
+      --border-color: #1c3f30;
+      --gold: #d4af37;
+      --gold-hover: #f1c40f;
+      --text-main: #f0f4f1;
+      --text-muted: #9fb3a6;
+      --whatsapp: #25d366;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -150px;
+      right: -150px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, rgba(5, 15, 11, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Header */
     header {
-      max-width: 1000px;
-      margin: 0 auto 30px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #163023;
-      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      background-color: var(--bg-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, var(--gold), #aa820a);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
     .brand-title {
-      color: #d4af37;
-      font-size: 1.2rem;
-      font-weight: bold;
+      color: var(--gold);
+      font-size: 1rem;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
+      font-family: 'Playfair Display', serif;
     }
+
     .back-btn {
-      display: inline-block;
-      padding: 8px 18px;
-      background-color: #d4af37;
-      color: #050d0a;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background-color: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      transition: var(--transition);
     }
+
+    .back-btn:active {
+      background-color: var(--gold);
+      color: var(--bg-primary);
+    }
+
+    /* Main Container */
     .container {
-      max-width: 900px;
+      width: 100%;
+      max-width: 1100px;
       margin: 0 auto;
+      padding: 30px 16px 60px;
+      flex: 1;
     }
-    .hero-text {
+
+    /* Hero Section */
+    .contact-hero {
       text-align: center;
       margin-bottom: 35px;
     }
-    .hero-text h1 {
-      color: #ffffff;
-      font-size: 2rem;
-      margin-bottom: 10px;
+
+    .hero-badge {
+      display: inline-block;
+      padding: 5px 12px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
     }
-    .card {
-      background-color: #0a1b12;
-      border: 1px solid #173325;
-      padding: 25px;
-      border-radius: 10px;
+
+    .contact-hero h1 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      margin-bottom: 12px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .contact-hero p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Unique Mobile-First Layout Grid */
+    .contact-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* WhatsApp Mega Banner (Top Priority for Mobile Users) */
+    .whatsapp-banner {
+      background: linear-gradient(135deg, #072e1c, #0a3d25);
+      border: 2px solid var(--whatsapp);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .whatsapp-banner::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 120px;
+      height: 120px;
+      background: rgba(37, 211, 102, 0.1);
+      border-radius: 50%;
+    }
+
+    .whatsapp-icon-pulse {
+      width: 60px;
+      height: 60px;
+      background-color: var(--whatsapp);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 15px;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .whatsapp-banner h3 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .whatsapp-banner p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
       margin-bottom: 20px;
     }
-    .card h2 {
-      color: #d4af37;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-    .card p {
-      color: #a3b8ab;
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-    }
-    .btn-wa {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #25d366;
+
+    .whatsapp-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 320px;
+      padding: 14px 20px;
+      background-color: var(--whatsapp);
       color: #ffffff;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      margin-top: 10px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      transition: var(--transition);
     }
+
+    .whatsapp-action-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Executive Emails Section */
+    .emails-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .email-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .email-card:active {
+      border-color: var(--gold);
+      background-color: var(--bg-secondary);
+    }
+
+    .email-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .email-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .email-info span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .email-info h4 {
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .email-action-icon {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Direct Inquiry Form Card */
+    .form-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 24px 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .form-card h3 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .form-card p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-bottom: 22px;
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+    }
+
+    .input-group label {
+      display: block;
+      color: var(--text-main);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-field {
+      width: 100%;
+      padding: 14px 16px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem; /* Prevents auto-zoom on iOS */
+      transition: var(--transition);
+    }
+
+    .form-field:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    }
+
+    textarea.form-field {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background-color: var(--gold);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+    }
+
+    .submit-btn:active {
+      background-color: var(--gold-hover);
+      transform: scale(0.98);
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 20px 0;
-      border-top: 1px solid #163023;
-      margin-top: 40px;
-      color: #63776b;
-      font-size: 0.85rem;
+      padding: 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      background-color: var(--bg-secondary);
+    }
+
+    /* Desktop Layout Enhancement */
+    @media (min-width: 768px) {
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        align-items: start;
+      }
+      .whatsapp-banner {
+        grid-column: 1 / -1;
+      }
+      .emails-container {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
+  <div class="ambient-glow"></div>
+
   <header>
-    <div class="brand-title">Kikoma Global</div>
-    <a href="index.html" class="back-btn">&larr; Home</a>
+    <div class="brand-container">
+      <div class="brand-logo">KG</div>
+      <div class="brand-title">Kikoma Global</div>
+    </div>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
   </header>
 
   <div class="container">
-    <div class="hero-text">
-      <h1>Contact Kikoma Global Trade Desk</h1>
-      <p>Get in touch for export inquiries, commodity pricing, or partnership proposals.</p>
+    
+    <div class="contact-hero">
+      <div class="hero-badge"><i class="fa-solid fa-headset"></i> Secure Direct Access</div>
+      <h1>Connect With Our Team</h1>
+      <p>Instant mobile communication channels for executive leadership, commercial sales, and Idiroko logistics.</p>
     </div>
 
-    <div class="card">
-      <h2>Headquarters & Operations Hub</h2>
-      <p><strong>Corporate Name:</strong> Kikoma Global Investment Limited</p>
-      <p><strong>Address:</strong> Idiroko, Ipokia Local Government Area, Ogun State, Nigeria</p>
-      <p><strong>Email:</strong> sales@kikomaglobal.com</p>
-      <p><strong>Business Registration:</strong> RC: 8918006</p>
+    <div class="contact-grid">
       
-      <a href="https://wa.me/2349133161564" target="_blank" class="btn-wa">&#128172; Chat Direct on WhatsApp Trade Desk</a>
+      <!-- WhatsApp Priority Card (Spans full width on desktop, top on mobile) -->
+      <div class="whatsapp-banner">
+        <div class="whatsapp-icon-pulse">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <h3>Instant WhatsApp Desk</h3>
+        <p>Chat live right now with our active trade response desk.</p>
+        <a href="https://wa.me/2349133161564" target="_blank" class="whatsapp-action-btn">
+          <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> +234 913 316 1564
+        </a>
+      </div>
+
+      <!-- Left Column: Direct Emails -->
+      <div class="emails-container">
+        
+        <a href="mailto:ceo@kikomaglobal.com" class="email-card">
+          <div class="email-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="email-info">
+            <span>Executive Office</span>
+            <h4>ceo@kikomaglobal.com</h4>
+          </div>
+          <div class="email-action-icon"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <a href="mailto:Sales@kikomaglobal.com" class="email-card">
+          <div class="email-icon"><i class="fa-solid fa-handshake"></i></div>
+          <div class="email-info">
+            <span>Sales & Commercial Desk</span>
+            <h4>Sales@kikomaglobal.com</h4>
+          </div>
+          <div class="email-action-icon"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+        <a href="mailto:exportlead@kikomaglobal.com" class="email-card">
+          <div class="email-icon"><i class="fa-solid fa-ship"></i></div>
+          <div class="email-info">
+            <span>Export & Logistics Lead</span>
+            <h4>exportlead@kikomaglobal.com</h4>
+          </div>
+          <div class="email-action-icon"><i class="fa-solid fa-chevron-right"></i></div>
+        </a>
+
+      </div>
+
+      <!-- Right Column: Interactive Contact Form -->
+      <div class="form-card">
+        <h3>Send a Message</h3>
+        <p>Submit your inquiry directly to our department inbox.</p>
+        
+        <form action="#" method="POST">
+          <div class="input-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" class="form-field" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-field" placeholder="Enter your email address" required>
+          </div>
+
+          <div class="input-group">
+            <label for="department">Department</label>
+            <select id="department" class="form-field" required>
+              <option value="" disabled selected>Select recipient department...</option>
+              <option value="ceo">Executive Office (CEO)</option>
+              <option value="sales">Sales & Commercial Desk</option>
+              <option value="export">Export & Logistics Lead</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" class="form-field" placeholder="Type your order or inquiry details..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Send Inquiry
+          </button>
+        </form>
+      </div>
+
     </div>
+
   </div>
 
   <footer>
-    &copy; Kikoma Global Investment Limited. All rights reserved.
+    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Idiroko Hub.
   </footer>
 
 </body>

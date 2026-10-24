@@ -1,150 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-<head<head><link rel="stylesheet" href="style.css">
+<head><link rel="stylesheet" href="style.css">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Page Title</title>
-  <link rel="stylesheet" href="style.css">
-</head>
->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Commodity Specifications - Kikoma Global Investment Limited</title>
+  <title>Export Commodities & Products | Kikoma Global Investment Limited</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #050d0a;
-      color: #e0e6e2;
-      line-height: 1.6;
-      padding: 20px;
+    :root {
+      --bg-primary: #050f0b;
+      --bg-secondary: #0a1f16;
+      --bg-card: #0e291e;
+      --border-color: #1c3f30;
+      --gold: #d4af37;
+      --gold-hover: #f1c40f;
+      --text-main: #f0f4f1;
+      --text-muted: #9fb3a6;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Header */
     header {
-      max-width: 1000px;
-      margin: 0 auto 30px;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #163023;
-      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
     }
-    .brand-title {
-      color: #d4af37;
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--gold), #aa820a);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-weight: 700;
       font-size: 1.2rem;
-      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .brand-title {
+      color: var(--gold);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background-color: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      background-color: var(--gold);
+      color: var(--bg-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 20px;
+      flex: 1;
+    }
+
+    /* Hero Section */
+    .products-hero {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .products-hero h1 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .products-hero p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      line-height: 1.7;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.1);
+    }
+
+    .product-header {
+      background: var(--bg-secondary);
+      padding: 25px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .product-icon {
+      width: 65px;
+      height: 65px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .product-header h3 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 5px;
+    }
+
+    .product-grade {
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .back-btn {
-      display: inline-block;
-      padding: 8px 18px;
-      background-color: #d4af37;
-      color: #050d0a;
+
+    .product-body {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-body p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .spec-list {
+      list-style: none;
+      border-top: 1px solid var(--border-color);
+      padding-top: 15px;
+    }
+
+    .spec-list li {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      padding: 6px 0;
+      color: var(--text-muted);
+    }
+
+    .spec-list li span:last-child {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .product-footer {
+      padding: 20px 25px;
+      background: rgba(5, 15, 11, 0.5);
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: #2ecc71;
+      font-weight: 600;
+    }
+
+    .availability-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background-color: #2ecc71;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #2ecc71;
+    }
+
+    .inquire-btn {
+      padding: 8px 16px;
+      background-color: var(--gold);
+      color: var(--bg-primary);
       text-decoration: none;
       border-radius: 6px;
-      font-weight: bold;
-      font-size: 0.9rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: var(--transition);
     }
-    .container {
-      max-width: 950px;
-      margin: 0 auto;
+
+    .inquire-btn:hover {
+      background-color: var(--gold-hover);
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
     }
-    .hero-text {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-    .hero-text h1 {
-      color: #ffffff;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    .product-card {
-      background-color: #0a1b12;
-      border: 1px solid #173325;
-      padding: 25px;
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-    .product-card h2 {
-      color: #d4af37;
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-      border-bottom: 1px solid #173325;
-      padding-bottom: 8px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    th, td {
-      padding: 10px 12px;
-      text-align: left;
-      border-bottom: 1px solid #163023;
-      font-size: 0.9rem;
-    }
-    th {
-      color: #d4af37;
-      background-color: #07130e;
-      width: 40%;
-    }
-    td {
-      color: #c5d6cc;
-    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 20px 0;
-      border-top: 1px solid #163023;
-      margin-top: 40px;
-      color: #63776b;
+      padding: 25px 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
       font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
+  <div class="ambient-glow"></div>
+
   <header>
-    <div class="brand-title">Kikoma Global</div>
-    <a href="index.html" class="back-btn">&larr; Home</a>
+    <div class="brand-container">
+      <div class="brand-logo">KG</div>
+      <div class="brand-title">Kikoma Global</div>
+    </div>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
   </header>
 
   <div class="container">
-    <div class="hero-text">
-      <h1>Export Commodity Specifications</h1>
-      <p>Quality parameters and packaging standards for Kikoma Global export commodities.</p>
+    
+    <!-- Hero Section -->
+    <section class="products-hero">
+      <div class="hero-badge"><i class="fa-solid fa-boxes-stacked"></i> Premium Export Portfolio</div>
+      <h1>Certified Agricultural & Mineral Commodities</h1>
+      <p>Sourced with integrity, cleaned to international specifications, and packaged in secure export-grade jute and woven bags at our Idiroko storage hub.</p>
+    </section>
+
+    <!-- Products Grid -->
+    <div class="products-grid">
+      
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-header">
+          <div class="product-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div>
+            <h3>Premium Agro Commodities</h3>
+            <span class="product-grade">Grade-1 Export Quality</span>
+          </div>
+        </div>
+        <div class="product-body">
+          <p>Carefully aggregated, cleaned, and sorted agricultural produce meeting strict global phytosanitary and food safety standards.</p>
+          <ul class="spec-list">
+            <li><span>Moisture Content:</span> <span>&lt; 10% Controlled</span></li>
+            <li><span>Packaging:</span> <span>New Jute Bags</span></li>
+            <li><span>Inspection:</span> <span>Certified Pre-Shipment</span></li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="availability-badge">In Stock / Ready</span>
+          <a href="catalog.html" class="inquire-btn">View Catalog</a>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-header">
+          <div class="product-icon"><i class="fa-solid fa-mountain"></i></div>
+          <div>
+            <h3>Solid Mineral Aggregates</h3>
+            <span class="product-grade">Industrial Grade</span>
+          </div>
+        </div>
+        <div class="product-body">
+          <p>High-purity solid minerals prepared and weighed under stringent industrial protocols for international manufacturing and processing markets.</p>
+          <ul class="spec-list">
+            <li><span>Purity Standard:</span> <span>High Grade Assay</span></li>
+            <li><span>Packaging:</span> <span>Heavy-Duty Woven Sacks</span></li>
+            <li><span>Weighing:</span> <span>Digital Certified Scale</span></li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="availability-badge">In Stock / Ready</span>
+          <a href="catalog.html" class="inquire-btn">View Catalog</a>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-header">
+          <div class="product-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <div>
+            <h3>Bulk Logistics & Bagging</h3>
+            <span class="product-grade">Idiroko Hub Service</span>
+          </div>
+        </div>
+        <div class="product-body">
+          <p>Professional bagging, heavy-duty digital scale weighing, and rapid container stuffing services customized for bulk exporters.</p>
+          <ul class="spec-list">
+            <li><span>Scale Accuracy:</span> <span>Calibrated Precision</span></li>
+            <li><span>Storage Type:</span> <span>Pest & Moisture Controlled</span></li>
+            <li><span>Turnaround:</span> <span>Accelerated Loading</span></li>
+          </ul>
+        </div>
+        <div class="product-footer">
+          <span class="availability-badge">Operational</span>
+          <a href="catalog.html" class="inquire-btn">View Catalog</a>
+        </div>
+      </div>
+
     </div>
 
-    <!-- Cocoa Beans Spec -->
-    <div class="product-card">
-      <h2>Grade-1 Raw Cocoa Beans</h2>
-      <table>
-        <tr><th>Quality Grade</th><td>Grade 1 (Main Crop, Fully Fermented)</td></tr>
-        <tr><th>Bean Count</th><td>95 - 105 beans per 100g</td></tr>
-        <tr><th>Moisture Content</th><td>7.5% Maximum</td></tr>
-        <tr><th>Mouldy Beans</th><td>3% Maximum</td></tr>
-        <tr><th>Slaty Beans</th><td>3% Maximum</td></tr>
-        <tr><th>Defective / Insect Beans</th><td>3% Maximum</td></tr>
-        <tr><th>Standard Packaging</th><td>65kg Jute Bags</td></tr>
-      </table>
-    </div>
-
-    <!-- Cocoa Powder Spec -->
-    <div class="product-card">
-      <h2>Natural 10/12 Cocoa Powder</h2>
-      <table>
-        <tr><th>Type</th><td>100% Pure Natural Cocoa Powder (Non-Alkalized)</td></tr>
-        <tr><th>Fat Content</th><td>10% - 12%</td></tr>
-        <tr><th>Moisture Content</th><td>5.0% Maximum</td></tr>
-        <tr><th>pH Level</th><td>5.0 - 5.8</td></tr>
-        <tr><th>Fineness (200 mesh)</th><td>99% Minimum</td></tr>
-        <tr><th>Standard Packaging</th><td>25kg Multi-wall Kraft Paper Bags</td></tr>
-      </table>
-    </div>
   </div>
 
   <footer>
-    &copy; Kikoma Global Investment Limited. All rights reserved.
+    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Professional Warehouse & Export Operations.
   </footer>
 
 </body>

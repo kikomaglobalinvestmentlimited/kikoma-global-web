@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="stylesheet" href="style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Formal Corporate Offer (FCO) & Trade Quote | Kikoma Global Investment Limited</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-primary: #050f0b;
+      --bg-secondary: #0a1f16;
+      --bg-card: #0e291e;
+      --border-color: #1c3f30;
+      --gold: #d4af37;
+      --gold-hover: #f1c40f;
+      --text-main: #f0f4f1;
+      --text-muted: #9fb3a6;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+      background-color: var(--bg-primary);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, var(--gold), #aa820a);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--bg-primary);
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .brand-title {
+      color: var(--gold);
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background-color: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .back-btn:hover {
+      background-color: var(--gold);
+      color: var(--bg-primary);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 50px 20px;
+      flex: 1;
+    }
+
+    /* Hero Section */
+    .fco-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: var(--gold);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .fco-hero h1 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .fco-hero p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* FCO Generator Card */
+    .fco-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+
+    .fco-card h2 {
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 15px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--text-main);
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 14px 16px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-fco-btn {
+      width: 100%;
+      padding: 16px;
+      background-color: var(--gold);
+      color: var(--bg-primary);
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-fco-btn:hover {
+      background-color: var(--gold-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      background-color: var(--bg-secondary);
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <header>
+    <div class="brand-container">
+      <div class="brand-logo">KG</div>
+      <div class="brand-title">Kikoma Global</div>
+    </div>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
+  </header>
+
+  <div class="container">
+    
+    <section class="fco-hero">
+      <div class="hero-badge"><i class="fa-solid fa-file-invoice-dollar"></i> Instant Trade Requisition</div>
+      <h1>Formal Corporate Offer (FCO) Generator</h1>
+      <p>Submit your commodity specifications, metric ton volumes, and preferred Incoterms for a verified commercial trade quote from our Idiroko trade desk.</p>
+    </section>
+
+    <div class="fco-card">
+      <h2>Requisition Parameters</h2>
+      
+      <form onsubmit="event.preventDefault(); alert('FCO Trade Quote submitted successfully! Our commercial desk will review and dispatch official documentation to your corporate email within 2 hours.');">
+        <div class="form-grid">
+          
+          <div class="form-group">
+            <label for="commodity">Select Commodity</label>
+            <select id="commodity" class="form-control" required>
+              <option value="" disabled selected>Choose commodity...</option>
+              <option value="cocoa">Grade-1 Raw Cocoa Beans</option>
+              <option value="powder">Natural 10/12 Cocoa Powder</option>
+              <option value="cashew">Raw Cashew Nuts (RCN)</option>
+              <option value="minerals">Solid Mineral Aggregates</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">Quantity (Metric Tons / MT)</label>
+            <input type="number" id="quantity" class="form-control" placeholder="e.g., 50 MT" required>
+          </div>
+
+          <div class="form-group">
+            <label for="incoterm">Incoterms & Delivery Method</label>
+            <select id="incoterm" class="form-control" required>
+              <option value="" disabled selected>Select delivery term...</option>
+              <option value="fob">FOB (Apapa Port, Lagos)</option>
+              <option value="cif">CIF (Destination Port)</option>
+              <option value="idiroko">Cross-Border Overland (Idiroko Hub)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="destination">Destination Port & Country</label>
+            <input type="text" id="destination" class="form-control" placeholder="e.g., Hamburg, Germany" required>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Corporate Buyer Name</label>
+            <input type="text" id="company" class="form-control" placeholder="Enter company name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Official Corporate Email</label>
+            <input type="email" id="email" class="form-control" placeholder="buyer@company.com" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label for="notes">Additional Specifications / Notes</label>
+            <textarea id="notes" class="form-control" placeholder="Specify packaging preferences (e.g., 65kg jute bags), target pricing, or inspection requirements..."></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit" class="submit-fco-btn">
+          <i class="fa-solid fa-paper-plane"></i> Submit Formal Corporate Offer
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Idiroko Hub FCO Portal. CAC RC: 8918006.
+  </footer>
+
+</body>
+</html>
