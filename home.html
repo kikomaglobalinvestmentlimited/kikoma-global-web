@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikoma Global Investment Limited - Professional Corporate Theme</title>
+    <title>Kikoma Global Investment Limited | Idiroko, Ogun State</title>
     <style>
-        /* Kikoma Global Investment Limited - Professional Corporate Theme */
+        /* Kikoma Global Investment Limited - Master Professional Corporate Theme */
         :root {
             --primary: #0A192F;       /* Deep Corporate Navy */
             --secondary: #172A45;     /* Dark Slate */
@@ -23,6 +23,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
@@ -31,7 +32,7 @@
             line-height: 1.6;
         }
 
-        /* Header & Navigation */
+        /* Header & Sticky Navigation */
         header {
             background-color: var(--primary);
             color: var(--white);
@@ -60,14 +61,15 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
             color: var(--white);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: var(--transition);
         }
 
@@ -75,38 +77,6 @@
             color: var(--accent);
         }
 
-        /* Clean Dropdown for Secondary Pages */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--primary);
-            min-width: 180px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            z-index: 1;
-            list-style: none;
-            flex-direction: column;
-            border-radius: 4px;
-            overflow: hidden;
-            top: 100%;
-            left: 0;
-        }
-
-        .dropdown-content li a {
-            padding: 10px 15px;
-            display: block;
-            font-size: 0.85rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: flex;
-        }
-
-        /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             cursor: pointer;
@@ -114,12 +84,12 @@
             color: var(--white);
         }
 
-        /* Hero Section */
+        /* Hero Banner */
         .hero {
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
             color: var(--white);
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
         }
 
         .hero h1 {
@@ -145,17 +115,18 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            text-align: center;
         }
 
         .btn:hover {
             background-color: var(--accent-hover);
         }
 
-        /* Content Sections */
-        .container {
+        /* Main Section Styling */
+        section {
+            padding: 80px 20px;
             max-width: 1100px;
-            margin: 50px auto;
-            padding: 0 20px;
+            margin: 0 auto;
         }
 
         .section-title {
@@ -164,11 +135,17 @@
         }
 
         .section-title h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--primary);
+            margin-bottom: 10px;
         }
 
-        /* Grid Layouts */
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        /* Grids & Cards */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -177,10 +154,11 @@
 
         .card {
             background: var(--white);
-            padding: 30px;
+            padding: 35px 30px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: var(--transition);
+            border-top: 4px solid var(--accent);
         }
 
         .card:hover {
@@ -190,6 +168,82 @@
         .card h3 {
             color: var(--primary);
             margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Accordion */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px 20px;
+            color: var(--text-dark);
+            display: none;
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Forms & Interactive Boxes */
+        .form-card, .info-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 4px solid var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
         }
 
         /* Footer */
@@ -197,8 +251,8 @@
             background-color: var(--primary);
             color: var(--text-light);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 80px;
+            padding: 40px 20px;
+            margin-top: 60px;
             font-size: 0.9rem;
         }
 
@@ -206,8 +260,8 @@
             margin-bottom: 10px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 950px) {
+        /* Responsive */
+        @media (max-width: 900px) {
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -225,12 +279,6 @@
                 display: flex;
             }
 
-            .dropdown-content {
-                position: relative;
-                box-shadow: none;
-                background-color: rgba(0,0,0,0.1);
-            }
-
             .menu-toggle {
                 display: block;
             }
@@ -239,89 +287,240 @@
 </head>
 <body>
 
-    <!-- Header & Navigation -->
+    <!-- Master Navigation Header -->
     <header>
-        <a href="home.html" class="logo">KIKOMA <span>GLOBAL</span></a>
-        <div class="menu-toggle" id="mobile-menu">
-            ☰
-        </div>
+        <a href="#home" class="logo">KIKOMA <span>GLOBAL</span></a>
+        <div class="menu-toggle" id="mobile-menu">☰</div>
         <nav>
             <ul id="nav-list">
-                <li><a href="home.html" class="active">Home</a></li>
-                <li><a href="catalogue.html">Catalogue</a></li>
-                <li><a href="product.html">Products</a></li>
-                <li><a href="service.html">Services</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portal.html">Portal</a></li>
-                <li><a href="track.html">Track</a></li>
-                <!-- Secondary Pages Dropdown -->
-                <li class="dropdown">
-                    <a href="#" style="color: var(--accent);">More ▾</a>
-                    <ul class="dropdown-content">
-                        <li><a href="partners.html">Partners</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="sustainability.html">Sustainability</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="career.html">Careers</a></li>
-                        <li><a href="terms.html">Terms</a></li>
-                        <li><a href="fco.html">FCO</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#catalogue">Catalogue</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#portal">Portal</a></li>
+                <li><a href="#track">Track</a></li>
+                <li><a href="#partners">Partners</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#sustainability">Sustainability</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#careers">Careers</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <li><a href="#fco">FCO</a></li>
+                <li><a href="#contact" style="color: var(--accent); font-weight: bold;">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- 1. HOME SECTION -->
+    <section id="home" class="hero" style="margin-top:0;">
         <h1>Driving Sustainable Growth & Global Investment</h1>
-        <p>Strategic investments across agriculture, real estate, and international trade designed to build long-term value and economic prosperity.</p>
-        <a href="catalogue.html" class="btn">Explore Our Catalogue</a>
+        <p>Headquartered in Idiroko, Ogun State, Nigeria. Strategic investments across agriculture, real estate, and international trade.</p>
+        <a href="#contact" class="btn">Connect With Our Desk</a>
     </section>
 
-    <!-- Content Sections -->
-    <div class="container">
+    <!-- 2. ABOUT SECTION -->
+    <section id="about">
         <div class="section-title">
-            <h2>Core Investment Sectors</h2>
+            <h2>About Kikoma Global Investment Limited</h2>
+            <p>CAC RC: 8918006 — Built on integrity, institutional discipline, and sustainable impact</p>
+        </div>
+        <div class="card" style="max-width: 900px; margin: 0 auto;">
+            <p style="margin-bottom: 15px;">Kikoma Global Investment Limited is a premier investment and asset management firm combining rigorous financial oversight with deep operational roots in key growth sectors across West Africa and global trade corridors.</p>
+            <p>Our mandate is to generate compounding, long-term value for our institutional partners and private investors while championing environmental stewardship and community empowerment.</p>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES SECTION -->
+    <section id="services" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>Our Core Services</h2>
+            <p>Comprehensive asset allocation and operational execution</p>
         </div>
         <div class="grid-3">
             <div class="card">
-                <h3>Agro-Allied Industries</h3>
-                <p>Investing across agricultural value chains, modern farming technologies, and food processing to ensure sustainable food security and strong yields.</p>
+                <h3>Asset Management & Advisory</h3>
+                <p>Structured wealth deployment, portfolio balancing, and risk-mitigated asset growth strategies tailored for institutional and private clients.</p>
             </div>
             <div class="card">
-                <h3>Real Estate Development</h3>
-                <p>Acquiring, developing, and managing prime commercial and residential properties that appreciate in value and generate stable cash flows.</p>
+                <h3>Agro-Allied Production</h3>
+                <p>Mechanized farming operations, high-yield crop cultivation, and large-scale agro-commodity processing hubs.</p>
             </div>
             <div class="card">
-                <h3>Global Trade & Logistics</h3>
-                <p>Facilitating international trade networks, supply chain enhancement, and commodity distribution across emerging and established corridors.</p>
+                <h3>International Trade & Logistics</h3>
+                <p>Cross-border supply chain management, commodity export facilitation, and strategic distribution network partnerships.</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Kikoma Global Investment Limited. All rights reserved.</p>
-        <p>Building Wealth. Empowering Futures.</p>
-    </footer>
+    <!-- 4. CATALOGUE SECTION -->
+    <section id="catalogue">
+        <div class="section-title">
+            <h2>Investment Catalogue</h2>
+            <p>Active portfolios and asset classes open for capital allocation</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Tier 1: Agro-Export Fund</h3>
+                <p>Short-to-medium-term agricultural commodity trading windows backed by physical inventory and verified international buyer purchase orders.</p>
+            </div>
+            <div class="card">
+                <h3>Tier 2: Commercial Real Estate</h3>
+                <p>Prime land acquisition and high-appreciation commercial property developments across strategic growth zones in Ogun State and beyond.</p>
+            </div>
+            <div class="card">
+                <h3>Tier 3: Trade Logistics Equity</h3>
+                <p>Infrastructure investments in transit corridors, warehousing facilities, and freight handling capabilities.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
-    <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navList = document.getElementById('nav-list');
+    <!-- 5. PRODUCTS SECTION -->
+    <section id="products" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>Primary Agro-Commodities</h2>
+            <p>Sourced directly from verified farming cooperatives and processed to international export standards</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Raw Cashew Nuts (RCN)</h3>
+                <p>High outturn, moisture-tested, and carefully sorted raw cashew nuts packaged for global export markets.</p>
+            </div>
+            <div class="card">
+                <h3>Sesame Seeds</h3>
+                <p>Clean, premium quality white and mixed sesame seeds processed for international food and oil processing industries.</p>
+            </div>
+            <div class="card">
+                <h3>Dried Split Ginger</h3>
+                <p>Aromatically rich, naturally sun-dried split ginger meeting rigorous phytosanitary standards.</p>
+            </div>
+        </div>
+    </section>
 
-        mobileMenu.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
+    <!-- 6. PORTAL SECTION -->
+    <section id="portal">
+        <div class="section-title">
+            <h2>Secure Investor Portal</h2>
+            <p>Access your active allocations, quarterly performance reports, and statements</p>
+        </div>
+        <div class="form-card">
+            <form onsubmit="event.preventDefault(); alert('Portal simulation: Login successful. Redirecting to secure client dashboard...');">
+                <div class="form-group">
+                    <label>Investor ID / Email</label>
+                    <input type="text" placeholder="e.g., KGI-90281" required>
+                </div>
+                <div class="form-group">
+                    <label>Secure Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Sign In to Dashboard</button>
+            </form>
+        </div>
+    </section>
 
-        // Close menu when clicking a link on mobile
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-            });
-        });
-    <script src="script.js"></script>
+    <!-- 7. TRACKING SECTION -->
+    <section id="track" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>Investment & Shipment Tracker</h2>
+            <p>Verify the real-time status of your capital deployment or export consignment</p>
+        </div>
+        <div class="form-card" style="background: var(--bg-light);">
+            <form id="track-form">
+                <div class="form-group">
+                    <label>Reference / Tracking ID</label>
+                    <input type="text" id="ref-id" placeholder="e.g., KGI-EXP-2026-04" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Check Status</button>
+            </form>
+            <div id="result-box" style="display: none; margin-top: 25px; background: #fff; padding: 25px; border-radius: 6px; border-left: 4px solid var(--accent);">
+                <h3 style="color: var(--primary); margin-bottom: 10px;">Status Report for: <span id="display-id" style="color: var(--accent);"></span></h3>
+                <p><strong>Current Status:</strong> <span style="color: var(--accent); font-weight: 600;">Active & Verified in Progress</span></p>
+                <p><strong>Stage:</strong> Quality Inspection / Processing / Logistics transit on schedule.</p>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <!-- 8. PARTNERS SECTION -->
+    <section id="partners">
+        <div class="section-title">
+            <h2>Global & Regional Partners</h2>
+            <p>Collaborating with leading financial institutions, farming cooperatives, and logistics networks</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Financial & Banking Alliances</h3>
+                <p>Working alongside accredited financial institutions to ensure secure escrow and transparent fund handling.</p>
+            </div>
+            <div class="card">
+                <h3>Agricultural Cooperatives</h3>
+                <p>Direct partnerships with regional farming bodies across Ogun State guaranteeing ethical sourcing and fair grower returns.</p>
+            </div>
+            <div class="card">
+                <h3>Logistics & Shipping Networks</h3>
+                <p>Alliances with verified freight forwarders and inspection agencies (e.g., SGS) for seamless port clearance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FAQ SECTION -->
+    <section id="faq" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Clear answers regarding our investment terms, export procedures, and security</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">How do I start an investment with Kikoma Global? <span>▾</span></div>
+                <div class="faq-answer">You can explore our catalogue, review our active windows, and contact our sales desk or register via our investor portal to begin documentation.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What are the standard export procedures? <span>▾</span></div>
+                <div class="faq-answer">Buyers issue an official LOI/CPO to our export lead desk, followed by FCO issuance, SPA execution, and secure financial instrument alignment.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Where is Kikoma Global located? <span>▾</span></div>
+                <div class="faq-answer">Our corporate headquarters is located in Idiroko, Ogun State, Nigeria.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. SUSTAINABILITY SECTION -->
+    <section id="sustainability">
+        <div class="section-title">
+            <h2>Sustainability & Responsible Impact</h2>
+            <p>Balancing rigorous financial returns with long-term environmental stewardship</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Environmental Stewardship</h3>
+                <p>Eco-friendly practices across agro-allied operations prioritizing soil conservation and energy efficiency.</p>
+            </div>
+            <div class="card">
+                <h3>Community Empowerment</h3>
+                <p>Supporting local farming cooperatives and fostering inclusive regional economic development.</p>
+            </div>
+            <div class="card">
+                <h3>Responsible Governance</h3>
+                <p>Strict ethical compliance, transparency, and accountability safeguarding stakeholder trust.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. NEWS SECTION -->
+    <section id="news" style="background-color: #fff;">
+        <div class="section-title">
+            <h2>Corporate News & Press Releases</h2>
+            <p>Stay informed with our latest updates, strategic milestones, and expansion announcements</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Expansion of Agro-Processing Hubs</h3>
+                <p><span style="color: var(--accent); font-size: 0.85rem; font-weight: bold;">OCTOBER 2026</span><br><br>Kikoma Global announces strategic capital deployment into mechanized grain processing facilities to enhance regional food security.</p>
+            </div>
+            <div class="card">
+                <h3>Q3 Portfolio Performance</h3>
+                <p><span style="color: var(--accent); font-size: 0.85rem; font-weight: bold;">SEPTEMBER 2026</span><br><br>Real estate and trade finance portfolios demonstrate robust resilience, delivering consistent compounding value.</p>
+            </div>
+            <div class="card">
+                <h3>Strategic Logistics Alliance</h3>
+                <p><span style="color: var(--accent); font-size: 0.85rem; font-weight: bold;">AUGUST 2026</span><br><br>New pa
