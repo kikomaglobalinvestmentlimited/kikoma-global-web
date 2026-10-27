@@ -1,421 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kikoma Global Investment Limited - Products & Assets</title>
+    <style>
+        /* Kikoma Global Investment Limited - Professional Corporate Theme */
+        :root {
+            --primary: #0A192F;       /* Deep Corporate Navy */
+            --secondary: #172A45;     /* Dark Slate */
+            --accent: #28a745;        /* Agro/Investment Green */
+            --accent-hover: #218838;  
+            --text-light: #8892B0;    /* Muted Slate */
+            --text-dark: #333333;     /* Off-black for readability */
+            --bg-light: #F8F9FA;      /* Clean background */
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Export Commodities & Products | Kikoma Global Investment Limited</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-primary: #050f0b;
-      --bg-secondary: #0a1f16;
-      --bg-card: #0e291e;
-      --border-color: #1c3f30;
-      --gold: #d4af37;
-      --gold-hover: #f1c40f;
-      --text-main: #f0f4f1;
-      --text-muted: #9fb3a6;
-      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    /* Ambient Background Glow */
-    .ambient-glow {
-      position: fixed;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
-      z-index: -1;
-      pointer-events: none;
-    }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: var(--white);
+            text-decoration: none;
+        }
 
-    /* Header */
-    header {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 24px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-    }
+        .logo span {
+            color: var(--accent);
+        }
 
-    .brand-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
 
-    .brand-logo {
-      width: 38px;
-      height: 38px;
-      background: linear-gradient(135deg, var(--gold), #aa820a);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--bg-primary);
-      font-weight: 700;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-    }
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
 
-    .brand-title {
-      color: var(--gold);
-      font-size: 1.15rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-family: 'Playfair Display', serif;
-    }
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent);
+        }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background-color: transparent;
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
 
-    .back-btn:hover {
-      background-color: var(--gold);
-      color: var(--bg-primary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-    }
+        /* Page Header Banner */
+        .page-header {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
 
-    /* Main Container */
-    .container {
-      max-width: 1280px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 50px 20px;
-      flex: 1;
-    }
+        .page-header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
 
-    /* Hero Section */
-    .products-hero {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 50px;
-    }
+        .page-header p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      color: var(--gold);
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-    }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
 
-    .products-hero h1 {
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      margin-bottom: 20px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
 
-    .products-hero p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
+        /* Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
 
-    /* Product Grid */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-    .product-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
 
-    .product-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212, 175, 55, 0.5);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.1);
-    }
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
 
-    .product-header {
-      background: var(--bg-secondary);
-      padding: 25px;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+        /* Product Showcase Layout */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
 
-    .product-icon {
-      width: 65px;
-      height: 65px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 1.8rem;
-      flex-shrink: 0;
-    }
+        .product-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 35px 30px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 4px solid var(--accent);
+        }
 
-    .product-header h3 {
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      margin-bottom: 5px;
-    }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .product-grade {
-      color: var(--gold);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+        .product-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
 
-    .product-body {
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
+        .product-card p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
 
-    .product-body p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      flex: 1;
-    }
+        .product-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
 
-    .spec-list {
-      list-style: none;
-      border-top: 1px solid var(--border-color);
-      padding-top: 15px;
-    }
+        .product-features li {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
 
-    .spec-list li {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.85rem;
-      padding: 6px 0;
-      color: var(--text-muted);
-    }
+        .product-features li::before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
 
-    .spec-list li span:last-child {
-      color: #ffffff;
-      font-weight: 600;
-    }
+        /* Call to Action Banner */
+        .cta-banner {
+            text-align: center; 
+            background: var(--secondary); 
+            color: var(--white); 
+            padding: 50px 20px; 
+            border-radius: 8px;
+            margin: 60px auto;
+            max-width: 1100px;
+        }
 
-    .product-footer {
-      padding: 20px 25px;
-      background: rgba(5, 15, 11, 0.5);
-      border-top: 1px solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .cta-banner h2 {
+            color: var(--white); 
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
 
-    .availability-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      color: #2ecc71;
-      font-weight: 600;
-    }
+        .cta-banner p {
+            color: var(--text-light); 
+            max-width: 600px; 
+            margin: 0 auto 25px;
+            font-size: 1rem;
+        }
 
-    .availability-badge::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background-color: #2ecc71;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #2ecc71;
-    }
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+            font-size: 0.9rem;
+        }
 
-    .inquire-btn {
-      padding: 8px 16px;
-      background-color: var(--gold);
-      color: var(--bg-primary);
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: var(--transition);
-    }
+        footer p {
+            margin-bottom: 10px;
+        }
 
-    .inquire-btn:hover {
-      background-color: var(--gold-hover);
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 25px 20px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      background-color: var(--bg-secondary);
-    }
+            nav ul.active {
+                display: flex;
+            }
 
-    @media (max-width: 768px) {
-      .products-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+            .menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="ambient-glow"></div>
+    <!-- Header & Navigation -->
+    <header>
+        <a href="home.html" class="logo">KIKOMA <span>GLOBAL</span></a>
+        <div class="menu-toggle" id="mobile-menu">
+            ☰
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="product.html" class="active">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="home.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header>
-    <div class="brand-container">
-      <div class="brand-logo">KG</div>
-      <div class="brand-title">Kikoma Global</div>
-    </div>
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-  </header>
-
-  <div class="container">
-    
-    <!-- Hero Section -->
-    <section class="products-hero">
-      <div class="hero-badge"><i class="fa-solid fa-boxes-stacked"></i> Premium Export Portfolio</div>
-      <h1>Certified Agricultural & Mineral Commodities</h1>
-      <p>Sourced with integrity, cleaned to international specifications, and packaged in secure export-grade jute and woven bags at our Idiroko storage hub.</p>
+    <!-- Page Header Banner -->
+    <section class="page-header">
+        <h1>Our Investment Products & Asset Classes</h1>
+        <p>Engineered financial structures designed to match diverse liquidity, growth, and capital preservation requirements.</p>
     </section>
 
-    <!-- Products Grid -->
-    <div class="products-grid">
-      
-      <!-- Product 1 -->
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon"><i class="fa-solid fa-seedling"></i></div>
-          <div>
-            <h3>Premium Agro Commodities</h3>
-            <span class="product-grade">Grade-1 Export Quality</span>
-          </div>
+    <!-- Product Showcase Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Core Asset Offerings</h2>
+            <p>Transparent, structured vehicles tailored for high-performance yields</p>
         </div>
-        <div class="product-body">
-          <p>Carefully aggregated, cleaned, and sorted agricultural produce meeting strict global phytosanitary and food safety standards.</p>
-          <ul class="spec-list">
-            <li><span>Moisture Content:</span> <span>&lt; 10% Controlled</span></li>
-            <li><span>Packaging:</span> <span>New Jute Bags</span></li>
-            <li><span>Inspection:</span> <span>Certified Pre-Shipment</span></li>
-          </ul>
-        </div>
-        <div class="product-footer">
-          <span class="availability-badge">In Stock / Ready</span>
-          <a href="catalog.html" class="inquire-btn">View Catalog</a>
-        </div>
-      </div>
 
-      <!-- Product 2 -->
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon"><i class="fa-solid fa-mountain"></i></div>
-          <div>
-            <h3>Solid Mineral Aggregates</h3>
-            <span class="product-grade">Industrial Grade</span>
-          </div>
-        </div>
-        <div class="product-body">
-          <p>High-purity solid minerals prepared and weighed under stringent industrial protocols for international manufacturing and processing markets.</p>
-          <ul class="spec-list">
-            <li><span>Purity Standard:</span> <span>High Grade Assay</span></li>
-            <li><span>Packaging:</span> <span>Heavy-Duty Woven Sacks</span></li>
-            <li><span>Weighing:</span> <span>Digital Certified Scale</span></li>
-          </ul>
-        </div>
-        <div class="product-footer">
-          <span class="availability-badge">In Stock / Ready</span>
-          <a href="catalog.html" class="inquire-btn">View Catalog</a>
-        </div>
-      </div>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div>
+                    <h3>Fixed Asset Notes (FAN)</h3>
+                    <p>Secured income-generating instruments backed by prime commercial real estate holdings and physical commodity inventories.</p>
+                    <ul class="product-features">
+                        <li>Regular periodic interest disbursement</li>
+                        <li>Fully backed by tangible corporate assets</li>
+                        <li>Flexible tenure options (6 to 36 months)</li>
+                    </ul>
+                </div>
+                <a href="home.html#contact" class="btn" style="width: 100%;">Subscribe Product</a>
+            </div>
 
-      <!-- Product 3 -->
-      <div class="product-card">
-        <div class="product-header">
-          <div class="product-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-          <div>
-            <h3>Bulk Logistics & Bagging</h3>
-            <span class="product-grade">Idiroko Hub Service</span>
-          </div>
-        </div>
-        <div class="product-body">
-          <p>Professional bagging, heavy-duty digital scale weighing, and rapid container stuffing services customized for bulk exporters.</p>
-          <ul class="spec-list">
-            <li><span>Scale Accuracy:</span> <span>Calibrated Precision</span></li>
-            <li><span>Storage Type:</span> <span>Pest & Moisture Controlled</span></li>
-            <li><span>Turnaround:</span> <span>Accelerated Loading</span></li>
-          </ul>
-        </div>
-        <div class="product-footer">
-          <span class="availability-badge">Operational</span>
-          <a href="catalog.html" class="inquire-btn">View Catalog</a>
-        </div>
-      </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div>
+                    <h3>Agro-Enterprise Equity Fund</h3>
+                    <p>Direct equity participation in high-yield mechanized farming operations, storage silos, and agro-commodity processing centers.</p>
+                    <ul class="product-features">
+                        <li>Direct exposure to the booming agricultural sector</li>
+                        <li>High capital appreciation potential</li>
+                        <li>Impact investing with food security focus</li>
+                    </ul>
+                </div>
+                <a href="home.html#contact" class="btn" style="width: 100%;">Subscribe Product</a>
+            </div>
 
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div>
+                    <h3>Global Trade Finance Pool</h3>
+                    <p>Short-duration participatory notes financing verified import-export transactions and international supply chain movements.</p>
+                    <ul class="product-features">
+                        <li>Short liquidity cycles (90 to 180 days)</li>
+                        <li>Protected by letters of credit and escrow</li>
+                        <li>Consistent compounding yield potential</li>
+                    </ul>
+                </div>
+                <a href="home.html#contact" class="btn" style="width: 100%;">Subscribe Product</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+        <h2>Need a Custom Portfolio Allocation?</h2>
+        <p>Our financial analysts can help design a tailored investment strategy customized to your specific risk tolerance and target returns.</p>
+        <a href="home.html#contact" class="btn">Speak With An Advisor</a>
     </div>
 
-  </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kikoma Global Investment Limited. All rights reserved.</p>
+        <p>Building Wealth. Empowering Futures.</p>
+    </footer>
 
-  <footer>
-    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Professional Warehouse & Export Operations.
-  </footer>
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
 
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

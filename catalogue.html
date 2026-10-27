@@ -1,535 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kikoma Global Investment Limited - Investment Catalogue</title>
+    <style>
+        /* Kikoma Global Investment Limited - Professional Corporate Theme */
+        :root {
+            --primary: #0A192F;       /* Deep Corporate Navy */
+            --secondary: #172A45;     /* Dark Slate */
+            --accent: #28a745;        /* Agro/Investment Green */
+            --accent-hover: #218838;  
+            --text-light: #8892B0;    /* Muted Slate */
+            --text-dark: #333333;     /* Off-black for readability */
+            --bg-light: #F8F9FA;      /* Clean background */
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Warehouse Operations & Product Catalog | Kikoma Global Investment Limited</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-primary: #050f0b;
-      --bg-secondary: #0a1f16;
-      --bg-card: #0e291e;
-      --border-color: #1c3f30;
-      --gold: #d4af37;
-      --gold-hover: #f1c40f;
-      --text-main: #f0f4f1;
-      --text-muted: #9fb3a6;
-      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    /* Ambient Background Glow */
-    .ambient-glow {
-      position: fixed;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
-      z-index: -1;
-      pointer-events: none;
-    }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: var(--white);
+            text-decoration: none;
+        }
 
-    /* Header */
-    header {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 24px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-    }
+        .logo span {
+            color: var(--accent);
+        }
 
-    .brand-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
 
-    .brand-logo {
-      width: 38px;
-      height: 38px;
-      background: linear-gradient(135deg, var(--gold), #aa820a);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--bg-primary);
-      font-weight: 700;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-    }
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
 
-    .brand-title {
-      color: var(--gold);
-      font-size: 1.15rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-family: 'Playfair Display', serif;
-    }
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent);
+        }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      background-color: transparent;
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
 
-    .back-btn:hover {
-      background-color: var(--gold);
-      color: var(--bg-primary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-    }
+        /* Page Header Banner */
+        .page-header {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
 
-    /* Main Container */
-    .container {
-      max-width: 1280px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 40px 20px;
-      flex: 1;
-    }
+        .page-header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
 
-    /* Hero Section */
-    .hero-text {
-      text-align: center;
-      max-width: 750px;
-      margin: 0 auto 40px;
-    }
+        .page-header p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      color: var(--gold);
-      border-radius: 20px;
-      font-size: 0.80rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-    }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+        }
 
-    .hero-text h1 {
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      margin-bottom: 15px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
 
-    .hero-text p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-    }
+        /* Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
 
-    /* Filter Buttons */
-    .filter-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 45px;
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-    .filter-btn {
-      padding: 8px 18px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: var(--transition);
-    }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
 
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--gold);
-      color: var(--bg-primary);
-      border-color: var(--gold);
-      font-weight: 600;
-    }
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
 
-    /* Gallery Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 30px;
-      margin-bottom: 50px;
-    }
+        /* Catalogue Grid & Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
 
-    .card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
+        .catalogue-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212, 175, 55, 0.5);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.1);
-    }
+        .catalogue-card:hover {
+            transform: translateY(-5px);
+        }
 
-    .card-img-wrapper {
-      position: relative;
-      width: 100%;
-      height: 280px;
-      overflow: hidden;
-      cursor: pointer;
-    }
+        .card-header-bg {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 20px;
+        }
 
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+        .card-header-bg h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
 
-    .card:hover img {
-      transform: scale(1.06);
-    }
+        .badge {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-    .card-tag {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: rgba(5, 15, 11, 0.85);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      color: var(--gold);
-      padding: 5px 12px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+        .card-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
 
-    .zoom-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(5, 15, 11, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: var(--transition);
-    }
+        .card-body p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
 
-    .zoom-overlay i {
-      color: var(--gold);
-      font-size: 1.5rem;
-      background: var(--bg-primary);
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
+        .specs-list {
+            list-style: none;
+            margin-bottom: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
 
-    .card-img-wrapper:hover .zoom-overlay {
-      opacity: 1;
-    }
+        .specs-list li {
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .card-info {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
+        .specs-list li span {
+            font-weight: 600;
+            color: var(--primary);
+        }
 
-    .card-info h3 {
-      color: #ffffff;
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      font-family: 'Playfair Display', serif;
-    }
+        .card-footer {
+            padding: 0 25px 25px 25px;
+        }
 
-    .card-info p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.5;
-      flex: 1;
-    }
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+            font-size: 0.9rem;
+        }
 
-    .card-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 20px;
-      padding-top: 15px;
-      border-top: 1px solid var(--border-color);
-      font-size: 0.8rem;
-      color: var(--gold);
-      font-weight: 600;
-    }
+        footer p {
+            margin-bottom: 10px;
+        }
 
-    /* Modal Lightbox */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      inset: 0;
-      background-color: rgba(3, 8, 6, 0.95);
-      backdrop-filter: blur(8px);
-      padding: 40px 20px;
-      justify-content: center;
-      align-items: center;
-    }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
 
-    .modal.active {
-      display: flex;
-    }
+            nav ul.active {
+                display: flex;
+            }
 
-    .modal-content {
-      position: relative;
-      max-width: 900px;
-      width: 100%;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
-      animation: modalPop 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+            .menu-toggle {
+                display: block;
+            }
 
-    @keyframes modalPop {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-
-    .modal-img {
-      width: 100%;
-      max-height: 500px;
-      object-fit: cover;
-    }
-
-    .modal-body {
-      padding: 25px;
-    }
-
-    .modal-body h2 {
-      color: var(--gold);
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .modal-body p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 20px;
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: var(--bg-primary);
-      border: 1px solid var(--border-color);
-      color: #fff;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      transition: var(--transition);
-    }
-
-    .close-modal:hover {
-      background: var(--gold);
-      color: var(--bg-primary);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 25px 20px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      background-color: var(--bg-secondary);
-    }
-
-    @media (max-width: 768px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="ambient-glow"></div>
-
-  <header>
-    <div class="brand-container">
-      <div class="brand-logo">KG</div>
-      <div class="brand-title">Kikoma Global</div>
-    </div>
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
-  </header>
-
-  <div class="container">
-    <div class="hero-text">
-      <div class="hero-badge"><i class="fa-solid fa-warehouse"></i> Idiroko Logistics Hub</div>
-      <h1>Warehouse Operations & Export Commodities</h1>
-      <p>Explore our high-capacity storage facilities, professional grade-1 commodity bagging units, and precision-calibrated weighing infrastructure designed for international trade.</p>
-    </div>
-
-    <!-- Category Filters -->
-    <div class="filter-container">
-      <button class="filter-btn active" data-filter="all">All Operations</button>
-      <button class="filter-btn" data-filter="warehouse">Warehouse Storage</button>
-      <button class="filter-btn" data-filter="commodity">Export Commodities</button>
-      <button class="filter-btn" data-filter="weighing">Weighing & QA</button>
-    </div>
-
-    <!-- Gallery Grid -->
-    <div class="gallery-grid">
-      
-      <!-- Card 1 (Newly Generated Master Image) -->
-      <div class="card" data-category="warehouse">
-        <div class="card-img-wrapper" onclick="openModal(this)">
-          <img src="watermarked_img_9905708017061846304.jpg" alt="Kikoma Global Idiroko Main Logistics Hub">
-          <span class="card-tag">Warehouse Operations</span>
-          <div class="zoom-overlay"><i class="fa-solid fa-expand"></i></div>
+    <!-- Header & Navigation -->
+    <header>
+        <a href="home.html" class="logo">KIKOMA <span>GLOBAL</span></a>
+        <div class="menu-toggle" id="mobile-menu">
+            ☰
         </div>
-        <div class="card-info">
-          <h3>Kikoma Idiroko Main Hub & Logistics Center</h3>
-          <p>Panoramic view of our primary storage warehouse featuring stacked brand-tagged commodity bags, operating heavy forklift units, precision QA stations, and dispatch loading bays.</p>
-          <div class="card-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Idiroko Facility</span>
-            <span>ID: KG-HQ01</span>
-          </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalogue.html" class="active">Catalogue</a></li>
+                <li><a href="home.html#about">About Us</a></li>
+                <li><a href="home.html#services">Sectors</a></li>
+                <li><a href="home.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header Banner -->
+    <section class="page-header">
+        <h1>Investment Portfolio Catalogue</h1>
+        <p>Explore our curated asset classes and high-growth opportunities engineered for sustainable returns.</p>
+    </section>
+
+    <!-- Catalogue Listing Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Featured Investment Opportunities</h2>
+            <p>Select a portfolio tier to review objectives and strategic allocations</p>
         </div>
-      </div>
 
-    </div>
-  </div>
+        <div class="grid-3">
+            <!-- Card 1: Agro-Allied -->
+            <div class="catalogue-card">
+                <div>
+                    <div class="card-header-bg">
+                        <span class="badge">Sector: Agriculture</span>
+                        <h3>Agro-Value Chain Fund</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Targeted funding for large-scale mechanized farming, grain aggregation, and agro-processing plants across high-yield corridors.</p>
+                        <ul class="specs-list">
+                            <li><span>Target Horizon:</span> 12 - 36 Months</li>
+                            <li><span>Risk Profile:</span> Moderate</li>
+                            <li><span>Focus:</span> Food Security & Processing</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="home.html#contact" class="btn" style="width: 100%; text-align: center;">Inquire Now</a>
+                </div>
+            </div>
 
-  <!-- Modal Lightbox -->
-  <div class="modal" id="imageModal" onclick="closeModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-      <button class="close-modal" onclick="forceCloseModal()"><i class="fa-solid fa-xmark"></i></button>
-      <img src="" alt="" class="modal-img" id="modalImg">
-      <div class="modal-body">
-        <h2 id="modalTitle"></h2>
-        <p id="modalDesc"></p>
-      </div>
-    </div>
-  </div>
+            <!-- Card 2: Real Estate -->
+            <div class="catalogue-card">
+                <div>
+                    <div class="card-header-bg">
+                        <span class="badge" style="background-color: #172A45; border: 1px solid var(--accent);">Sector: Real Estate</span>
+                        <h3>Prime Commercial Real Estate</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Strategic acquisition and development of high-value commercial properties and mixed-use complexes in rapidly growing urban centers.</p>
+                        <ul class="specs-list">
+                            <li><span>Target Horizon:</span> 3 - 5 Years</li>
+                            <li><span>Risk Profile:</span> Conservative / Stable</li>
+                            <li><span>Focus:</span> Capital Appreciation & Rental Yield</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="home.html#contact" class="btn" style="width: 100%; text-align: center;">Inquire Now</a>
+                </div>
+            </div>
 
-  <footer>
-    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Professional Warehouse & Export Operations.
-  </footer>
+            <!-- Card 3: Global Trade -->
+            <div class="catalogue-card">
+                <div>
+                    <div class="card-header-bg">
+                        <span class="badge">Sector: Trade & Logistics</span>
+                        <h3>Global Commodity Trade Hub</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Financing supply chain logistics, import-export infrastructure, and international commodity distribution networks.</p>
+                        <ul class="specs-list">
+                            <li><span>Target Horizon:</span> 6 - 18 Months</li>
+                            <li><span>Risk Profile:</span> Moderate - High</li>
+                            <li><span>Focus:</span> Supply Chain & Distribution</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="home.html#contact" class="btn" style="width: 100%; text-align: center;">Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    // Filter Functionality
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards = document.querySelectorAll('.card');
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kikoma Global Investment Limited. All rights reserved.</p>
+        <p>Building Wealth. Empowering Futures.</p>
+    </footer>
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
 
-        const filter = btn.getAttribute('data-filter');
-
-        cards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
         });
-      });
-    });
 
-    // Lightbox Modal Functions
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-
-    function openModal(element) {
-      const card = element.closest('.card');
-      const imgSrc = card.querySelector('img').src;
-      const title = card.querySelector('h3').innerText;
-      const desc = card.querySelector('p').innerText;
-
-      modalImg.src = imgSrc;
-      modalTitle.innerText = title;
-      modalDesc.innerText = desc;
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function forceCloseModal() {
-      modal.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-
-    function closeModal(event) {
-      if (event.target === modal) {
-        forceCloseModal();
-      }
-    }
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        forceCloseModal();
-      }
-    });
-  </script>
-
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

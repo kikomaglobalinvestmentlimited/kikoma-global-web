@@ -1,296 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kikoma Global Investment Limited - Investor Portal</title>
+    <style>
+        /* Kikoma Global Investment Limited - Professional Corporate Theme */
+        :root {
+            --primary: #0A192F;       /* Deep Corporate Navy */
+            --secondary: #172A45;     /* Dark Slate */
+            --accent: #28a745;        /* Agro/Investment Green */
+            --accent-hover: #218838;  
+            --text-light: #8892B0;    /* Muted Slate */
+            --text-dark: #333333;     /* Off-black for readability */
+            --bg-light: #F8F9FA;      /* Clean background */
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Client & Partner Portal | Kikoma Global Investment Limited</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-primary: #050f0b;
-      --bg-secondary: #0a1f16;
-      --bg-card: #0e291e;
-      --border-color: #1c3f30;
-      --gold: #d4af37;
-      --gold-hover: #f1c40f;
-      --text-main: #f0f4f1;
-      --text-muted: #9fb3a6;
-      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    /* Ambient Background Glow */
-    .ambient-glow {
-      position: fixed;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
-      z-index: -1;
-      pointer-events: none;
-    }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: var(--white);
+            text-decoration: none;
+        }
 
-    /* Header */
-    header {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      background-color: var(--bg-primary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+        .logo span {
+            color: var(--accent);
+        }
 
-    .brand-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-    .brand-logo {
-      width: 38px;
-      height: 38px;
-      background: linear-gradient(135deg, var(--gold), #aa820a);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--bg-primary);
-      font-weight: 700;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-    }
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
 
-    .brand-title {
-      color: var(--gold);
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-family: 'Playfair Display', serif;
-    }
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent);
+        }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      background-color: transparent;
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: var(--transition);
-    }
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
 
-    .back-btn:hover {
-      background-color: var(--gold);
-      color: var(--bg-primary);
-    }
+        /* Page Header Banner */
+        .page-header {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
 
-    /* Main Container */
-    .container {
-      max-width: 500px;
-      width: 100%;
-      margin: auto;
-      padding: 40px 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+        .page-header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
 
-    /* Login Card */
-    .portal-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 40px 30px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-      text-align: center;
-    }
+        .page-header p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .portal-icon {
-      width: 65px;
-      height: 65px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 1.5rem;
-      margin: 0 auto 20px;
-    }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
 
-    .portal-card h1 {
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
 
-    .portal-card p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 30px;
-    }
+        /* Content Sections */
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
 
-    .form-group {
-      text-align: left;
-      margin-bottom: 20px;
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-    .form-group label {
-      display: block;
-      color: var(--text-main);
-      font-size: 0.78rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
 
-    .form-control {
-      width: 100%;
-      padding: 14px 16px;
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      color: #ffffff;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1rem;
-      transition: var(--transition);
-    }
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
 
-    .form-control:focus {
-      outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-    }
+        /* Portal Login Card */
+        .portal-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent);
+        }
 
-    .login-btn {
-      width: 100%;
-      padding: 15px;
-      background-color: var(--gold);
-      color: var(--bg-primary);
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-top: 10px;
-    }
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    .login-btn:hover {
-      background-color: var(--gold-hover);
-      transform: translateY(-2px);
-    }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
 
-    .portal-help {
-      margin-top: 25px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
 
-    .portal-help a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 600;
-    }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 25px 20px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      background-color: var(--bg-secondary);
-      margin-top: auto;
-    }
-  </style>
+        .portal-help {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .portal-help a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .portal-help a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 950px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="ambient-glow"></div>
+    <!-- Header & Navigation -->
+    <header>
+        <a href="home.html" class="logo">KIKOMA <span>GLOBAL</span></a>
+        <div class="menu-toggle" id="mobile-menu">
+            ☰
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="track.html">Track</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="portal.html" class="active">Portal</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header>
-    <div class="brand-container">
-      <div class="brand-logo">KG</div>
-      <div class="brand-title">Kikoma Global</div>
-    </div>
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
-  </header>
+    <!-- Page Header Banner -->
+    <section class="page-header">
+        <h1>Client & Investor Portal</h1>
+        <p>Log in securely to access your dashboard, monitor allocations, and review asset performance.</p>
+    </section>
 
-  <div class="container">
-    
-    <div class="portal-card">
-      <div class="portal-icon"><i class="fa-solid fa-lock"></i></div>
-      <h1>Client & Partner Login</h1>
-      <p>Access your secure dashboard for trade contracts, weighing reports, and documentation.</p>
-
-      <form onsubmit="event.preventDefault(); alert('Secure authentication gateway active. Please contact exportlead@kikomaglobal.com for enterprise credentials.');">
-        <div class="form-group">
-          <label for="username">Partner Email / ID</label>
-          <input type="text" id="username" class="form-control" placeholder="Enter partner email" required>
+    <!-- Portal Login Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Secure Account Access</h2>
+            <p>Enter your registered investor credentials to sign in</p>
         </div>
 
-        <div class="form-group">
-          <label for="password">Secure Password</label>
-          <input type="password" id="password" class="form-control" placeholder="••••••••••••" required>
+        <div class="portal-card">
+            <form onsubmit="event.preventDefault(); alert('Portal authentication interface active. Please contact support@kikomaglobal.com for access credentials.');">
+                <div class="form-group">
+                    <label for="portal-email">Registered Email Address</label>
+                    <input type="email" id="portal-email" placeholder="investor@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="portal-password">Account Password</label>
+                    <input type="password" id="portal-password" placeholder="••••••••••••" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Sign In to Portal</button>
+            </form>
+
+            <div class="portal-help">
+                Need help accessing your account? <a href="contact.html">Contact Support Desk</a>
+            </div>
         </div>
+    </section>
 
-        <button type="submit" class="login-btn">
-          <i class="fa-solid fa-right-to-bracket"></i> Sign In to Portal
-        </button>
-      </form>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kikoma Global Investment Limited. All rights reserved.</p>
+        <p>Building Wealth. Empowering Futures.</p>
+    </footer>
 
-      <div class="portal-help">
-        Need access credentials? <a href="contact.html">Contact Trade Desk</a>
-      </div>
-    </div>
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
 
-  </div>
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
 
-  <footer>
-    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Secure Idiroko Portal.
-  </footer>
-
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

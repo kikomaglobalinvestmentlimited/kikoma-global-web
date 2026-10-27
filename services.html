@@ -1,318 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kikoma Global Investment Limited - Our Services</title>
+    <style>
+        /* Kikoma Global Investment Limited - Professional Corporate Theme */
+        :root {
+            --primary: #0A192F;       /* Deep Corporate Navy */
+            --secondary: #172A45;     /* Dark Slate */
+            --accent: #28a745;        /* Agro/Investment Green */
+            --accent-hover: #218838;  
+            --text-light: #8892B0;    /* Muted Slate */
+            --text-dark: #333333;     /* Off-black for readability */
+            --bg-light: #F8F9FA;      /* Clean background */
+            --white: #FFFFFF;
+            --transition: all 0.3s ease;
+        }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Export & Logistics Services | Kikoma Global Investment Limited</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --bg-primary: #050f0b;
-      --bg-secondary: #0a1f16;
-      --bg-card: #0e291e;
-      --border-color: #1c3f30;
-      --gold: #d4af37;
-      --gold-hover: #f1c40f;
-      --text-main: #f0f4f1;
-      --text-muted: #9fb3a6;
-      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    /* Ambient Background Glow */
-    .ambient-glow {
-      position: fixed;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(5, 15, 11, 0) 70%);
-      z-index: -1;
-      pointer-events: none;
-    }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            color: var(--white);
+            text-decoration: none;
+        }
 
-    /* Header */
-    header {
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      background-color: var(--bg-primary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+        .logo span {
+            color: var(--accent);
+        }
 
-    .brand-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
 
-    .brand-logo {
-      width: 38px;
-      height: 38px;
-      background: linear-gradient(135deg, var(--gold), #aa820a);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--bg-primary);
-      font-weight: 700;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
-    }
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
 
-    .brand-title {
-      color: var(--gold);
-      font-size: 1.1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-family: 'Playfair Display', serif;
-    }
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent);
+        }
 
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 16px;
-      background-color: transparent;
-      border: 1.5px solid var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: var(--transition);
-    }
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--white);
+        }
 
-    .back-btn:hover {
-      background-color: var(--gold);
-      color: var(--bg-primary);
-    }
+        /* Page Header Banner */
+        .page-header {
+            background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+        }
 
-    /* Main Container */
-    .container {
-      max-width: 1280px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 50px 20px;
-      flex: 1;
-    }
+        .page-header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 10px;
+        }
 
-    /* Hero Section */
-    .services-hero {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 50px;
-    }
+        .page-header p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      color: var(--gold);
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 15px;
-    }
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
 
-    .services-hero h1 {
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
 
-    .services-hero p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
+        /* Content Sections */
+        .container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
 
-    /* Services Grid */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
-    }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-    .service-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 35px 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
 
-    .service-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212, 175, 55, 0.5);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    }
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
 
-    .service-icon {
-      width: 65px;
-      height: 65px;
-      background: rgba(212, 175, 55, 0.1);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 1.6rem;
-      margin-bottom: 25px;
-    }
+        /* Service Grid Layout */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-    .service-card h3 {
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-    }
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 35px 30px;
+            border-left: 4px solid var(--accent);
+        }
 
-    .service-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      flex: 1;
-    }
+        .service-card h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
 
-    .service-features {
-      list-style: none;
-      border-top: 1px solid var(--border-color);
-      padding-top: 15px;
-    }
+        .service-card p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
 
-    .service-features li {
-      font-size: 0.85rem;
-      color: var(--text-main);
-      padding: 5px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+        .service-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
 
-    .service-features li i {
-      color: var(--gold);
-      font-size: 0.75rem;
-    }
+        .service-features li {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 25px 20px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      background-color: var(--bg-secondary);
-      margin-top: auto;
-    }
-  </style>
+        .service-features li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Call to Action Banner */
+        .cta-banner {
+            text-align: center; 
+            background: var(--secondary); 
+            color: var(--white); 
+            padding: 50px 20px; 
+            border-radius: 8px;
+            margin: 60px auto;
+            max-width: 1100px;
+        }
+
+        .cta-banner h2 {
+            color: var(--white); 
+            margin-bottom: 15px;
+            font-size: 2rem;
+        }
+
+        .cta-banner p {
+            color: var(--text-light); 
+            max-width: 600px; 
+            margin: 0 auto 25px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="ambient-glow"></div>
+    <!-- Header & Navigation -->
+    <header>
+        <a href="home.html" class="logo">KIKOMA <span>GLOBAL</span></a>
+        <div class="menu-toggle" id="mobile-menu">
+            ☰
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="catalogue.html">Catalogue</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="service.html" class="active">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="track.html">Track</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <header>
-    <div class="brand-container">
-      <div class="brand-logo">KG</div>
-      <div class="brand-title">Kikoma Global</div>
-    </div>
-    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Home</a>
-  </header>
-
-  <div class="container">
-    
-    <section class="services-hero">
-      <div class="hero-badge"><i class="fa-solid fa-gears"></i> Comprehensive Operations</div>
-      <h1>Our Professional Export & Logistics Services</h1>
-      <p>Anchored at our strategic Idiroko hub, we provide end-to-end support designed to protect commodity value, guarantee precise weights, and expedite international transit.</p>
+    <!-- Page Header Banner -->
+    <section class="page-header">
+        <h1>Our Professional Services</h1>
+        <p>Comprehensive financial advisory, asset management, and execution capabilities tailored for enterprise growth.</p>
     </section>
 
-    <div class="services-grid">
-      
-      <!-- Service 1 -->
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-warehouse"></i></div>
-        <h3>High-Capacity Warehousing</h3>
-        <p>Secure, well-ventilated storage facilities engineered to maintain optimal environmental conditions for agricultural produce and mineral stock.</p>
-        <ul class="service-features">
-          <li><i class="fa-solid fa-check"></i> Moisture & Pest Controlled Environment</li>
-          <li><i class="fa-solid fa-check"></i> Organized Pallet Stacking Protocols</li>
-          <li><i class="fa-solid fa-check"></i> 24/7 Monitored Facility Security</li>
-        </ul>
-      </div>
+    <!-- Services Grid Section -->
+    <section class="container">
+        <div class="section-title">
+            <h2>What We Offer</h2>
+            <p>Expert solutions designed to protect capital and maximize long-term yields</p>
+        </div>
 
-      <!-- Service 2 -->
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-        <h3>Certified Digital Weighing & QA</h3>
-        <p>Rigorous quality inspection and calibration services ensuring absolute weight accuracy prior to final container loading and billing.</p>
-        <ul class="service-features">
-          <li><i class="fa-solid fa-check"></i> Heavy-Duty Industrial Scale Calibration</li>
-          <li><i class="fa-solid fa-check"></i> Pre-Shipment Quality Certification</li>
-          <li><i class="fa-solid fa-check"></i> Discrepancy Elimination Protocols</li>
-        </ul>
-      </div>
+        <div class="service-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <h3>Strategic Investment Advisory</h3>
+                <p>Guidance for corporate bodies and individual stakeholders looking to allocate capital into high-potential, resilient markets.</p>
+                <ul class="service-features">
+                    <li>Custom portfolio allocation strategy</li>
+                    <li>Market opportunity identification</li>
+                    <li>Asset performance assessment</li>
+                </ul>
+                <a href="contact.html" class="btn" style="width: 100%;">Enquire Now</a>
+            </div>
 
-      <!-- Service 3 -->
-      <div class="service-card">
-        <div class="service-icon"><i class="fa-solid fa-truck-fast"></i></div>
-        <h3>Cross-Border Logistics & Dispatch</h3>
-        <p>Streamlined supply chain management connecting regional producers to international shipping lanes smoothly through Idiroko.</p>
-        <ul class="service-features">
-          <li><i class="fa-solid fa-check"></i> Fast-Track Container Stuffing</li>
-          <li><i class="fa-solid fa-check"></i> Phytosanitary & Customs Documentation</li>
-          <li><i class="fa-solid fa-check"></i> Accelerated Port Transit Handover</li>
-        </ul>
-      </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <h3>Asset & Portfolio Management</h3>
+                <p>Full-scale management of real estate, agro-allied ventures, and fixed-income portfolios to ensure steady compounding returns.</p>
+                <ul class="service-features">
+                    <li>Active risk and yield monitoring</li>
+                    <li>Periodic financial reporting</li>
+                    <li>Capital preservation frameworks</li>
+                </ul>
+                <a href="contact.html" class="btn" style="width: 100%;">Enquire Now</a>
+            </div>
 
+            <!-- Service 3 -->
+            <div class="service-card">
+                <h3>Global Trade & Logistics Consulting</h3>
+                <p>Facilitating international trade networks, commodity sourcing, supply chain enhancement, and import-export advisory.</p>
+                <ul class="service-features">
+                    <li>Supply chain optimization</li>
+                    <li>Cross-border commodity distribution</li>
+                    <li>Regulatory compliance support</li>
+                </ul>
+                <a href="contact.html" class="btn" style="width: 100%;">Enquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="cta-banner">
+        <h2>Partner With Our Expert Team</h2>
+        <p>Contact our corporate desk today to discuss your next business venture or investment mandate.</p>
+        <a href="contact.html" class="btn">Get In Touch</a>
     </div>
 
-  </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Kikoma Global Investment Limited. All rights reserved.</p>
+        <p>Building Wealth. Empowering Futures.</p>
+    </footer>
 
-  <footer>
-    &copy; 2026 Kikoma Global Investment Limited. All rights reserved. Idiroko Hub Services.
-  </footer>
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
 
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link on mobile
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
