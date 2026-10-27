@@ -60,18 +60,50 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 25px;
+            gap: 15px;
+            align-items: center;
         }
 
         nav ul li a {
             color: var(--white);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: var(--transition);
         }
 
         nav ul li a:hover, nav ul li a.active {
             color: var(--accent);
+        }
+
+        /* Dropdown for Secondary Pages */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--primary);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            list-style: none;
+            flex-direction: column;
+            border-radius: 4px;
+            overflow: hidden;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content li a {
+            padding: 10px 15px;
+            display: block;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
         }
 
         /* Mobile Menu Toggle */
@@ -114,90 +146,61 @@
             border: none;
             cursor: pointer;
             text-align: center;
+            width: 100%;
         }
 
         .btn:hover {
             background-color: var(--accent-hover);
         }
 
-        /* Content Sections */
+        /* Content Layout */
         .container {
             max-width: 1100px;
             margin: 60px auto;
             padding: 0 20px;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: var(--text-light);
-            font-size: 1rem;
-        }
-
-        /* Contact Layout Split */
-        .contact-container {
+        .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
-            align-items: flex-start;
         }
 
-        .contact-info-box {
-            background: var(--secondary);
-            color: var(--white);
+        .contact-info, .contact-form-card {
+            background: var(--white);
             padding: 40px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent);
         }
 
-        .contact-info-box h3 {
-            color: var(--white);
+        .contact-info h3, .contact-form-card h3 {
+            color: var(--primary);
             font-size: 1.5rem;
             margin-bottom: 20px;
-        }
-
-        .contact-info-box p {
-            color: var(--text-light);
-            margin-bottom: 25px;
-            font-size: 0.95rem;
         }
 
         .info-item {
             margin-bottom: 20px;
         }
 
-        .info-item h4 {
-            color: var(--accent);
-            font-size: 1rem;
+        .info-item strong {
+            display: block;
+            color: var(--primary);
             margin-bottom: 5px;
         }
 
         .info-item p, .info-item a {
-            color: var(--white);
-            font-size: 0.95ln;
+            color: var(--text-dark);
             text-decoration: none;
+            font-size: 0.95rem;
         }
 
         .info-item a:hover {
             color: var(--accent);
         }
 
-        .contact-form-wrapper {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
+        /* Form Inputs */
         .form-group {
             margin-bottom: 20px;
         }
@@ -207,17 +210,18 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--primary);
+            font-size: 0.9rem;
         }
 
-        .form-group input, .form-group textarea {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: var(--accent);
         }
@@ -237,7 +241,7 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 950px) {
             nav ul {
                 display: none;
                 flex-direction: column;
@@ -255,16 +259,18 @@
                 display: flex;
             }
 
+            .dropdown-content {
+                position: relative;
+                box-shadow: none;
+                background-color: rgba(0,0,0,0.1);
+            }
+
             .menu-toggle {
                 display: block;
             }
 
             .page-header h1 {
                 font-size: 1.8rem;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -282,7 +288,22 @@
                 <li><a href="home.html">Home</a></li>
                 <li><a href="catalogue.html">Catalogue</a></li>
                 <li><a href="product.html">Products</a></li>
+                <li><a href="service.html">Services</a></li>
                 <li><a href="about.html">About Us</a></li>
+                <li><a href="portal.html">Portal</a></li>
+                <li><a href="track.html">Track</a></li>
+                <li class="dropdown">
+                    <a href="#" style="color: var(--accent);">More ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="partners.html">Partners</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="sustainability.html">Sustainability</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="career.html">Careers</a></li>
+                        <li><a href="terms.html">Terms</a></li>
+                        <li><a href="fco.html">FCO</a></li>
+                    </ul>
+                </li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
@@ -290,71 +311,102 @@
 
     <!-- Page Header Banner -->
     <section class="page-header">
-        <h1>Contact Kikoma Global Investment Limited</h1>
-        <p>Get in touch with our executive, sales, or logistics departments for inquiries and partnerships.</p>
+        <h1>Contact Our Corporate Desks</h1>
+        <p>Reach out to our executive, sales, and export logistics teams in Idiroko, Ogun State.</p>
     </section>
 
-    <!-- Contact Details & Form Section -->
+    <!-- Contact Section -->
     <section class="container">
-        <div class="section-title">
-            <h2>We Are Here to Help</h2>
-            <p>Reach out directly or send us a message through our secure portal</p>
-        </div>
-
-        <div class="contact-container">
-            <!-- Direct Company Contact Information -->
-            <div class="contact-info-box">
+        <div class="contact-grid">
+            
+            <!-- Contact Info & Desks -->
+            <div class="contact-info">
                 <h3>Corporate Headquarters</h3>
-                <p>Based in Idiroko, Ogun State, Nigeria. Connect with our dedicated desks for prompt assistance.</p>
                 
                 <div class="info-item">
-                    <h4>Official WhatsApp Line</h4>
+                    <strong>Physical Address</strong>
+                    <p>Idiroko, Ogun State, Nigeria</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>Official WhatsApp Line</strong>
                     <p><a href="https://wa.me/2349133161564" target="_blank">+234 9133161564</a></p>
                 </div>
 
                 <div class="info-item">
-                    <h4>Primary Corporate Email</h4>
-                    <p><a href="mailto:kikomaglobalinvestmentltd@gmail.com">kikomaglobalinvestmentltd@gmail.com</a></p>
-                </div>
-
-                <div class="info-item">
-                    <h4>Executive Office (CEO Desk)</h4>
+                    <strong>Executive Office (CEO)</strong>
                     <p><a href="mailto:ceo@kikomaglobal.com">ceo@kikomaglobal.com</a></p>
                 </div>
 
                 <div class="info-item">
-                    <h4>Sales & Partnerships Desk</h4>
+                    <strong>Sales & Investments Desk</strong>
                     <p><a href="mailto:sales@kikomaglobal.com">sales@kikomaglobal.com</a></p>
                 </div>
 
                 <div class="info-item">
-                    <h4>Export & Logistics Lead Desk</h4>
+                    <strong>Export & Logistics Lead</strong>
                     <p><a href="mailto:exportlead@kikomaglobal.com">exportlead@kikomaglobal.com</a></p>
                 </div>
             </div>
 
-            <!-- Secure Contact Form -->
-            <div class="contact-form-wrapper">
-                <form>
+            <!-- Export Inquiry Form (Connected to script.js WhatsApp Router) -->
+            <div class="contact-form-card">
+                <h3>Export & Trade Inquiry</h3>
+                <form onsubmit="submitExportInquiry(event)">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" placeholder="Enter your full name" required>
+                        <label for="commodity">Commodity</label>
+                        <input type="text" id="commodity" placeholder="e.g., Raw Cashew Nuts / Sesame Seeds" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="Enter your email address" required>
+                        <label for="quantity">Quantity (MT)</label>
+                        <input type="number" id="quantity" placeholder="e.g., 500" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="subject">Inquiry Subject / Department</label>
-                        <input type="text" id="subject" placeholder="e.g. Investment Inquiry, Export, Sales" required>
+                        <label for="packaging">Packaging Preference</label>
+                        <input type="text" id="packaging" placeholder="e.g., Jute Bags / 50kg PP Bags" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" rows="5" placeholder="How can our team assist you?" required></textarea>
+                        <label for="incoterm">Incoterm</label>
+                        <input type="text" id="incoterm" placeholder="e.g., FOB Lagos / CIF" required>
                     </div>
-                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+
+                    <div class="form-group">
+                        <label for="destination">Destination Port</label>
+                        <input type="text" id="destination" placeholder="e.g., Rotterdam / Shanghai" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" placeholder="Your Company Ltd" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact">Contact Person</label>
+                        <input type="text" id="contact" placeholder="Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Corporate Email</label>
+                        <input type="email" id="email" placeholder="name@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" placeholder="+234..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Additional Notes / Target Price</label>
+                        <textarea id="notes" rows="3" placeholder="Any specific requirements..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Inquiry via WhatsApp</button>
                 </form>
             </div>
+
         </div>
     </section>
 
@@ -363,3 +415,8 @@
         <p>&copy; 2026 Kikoma Global Investment Limited. All rights reserved.</p>
         <p>Building Wealth. Empowering Futures.</p>
     </footer>
+
+    <!-- Master JavaScript Link -->
+    <script src="script.js"></script>
+</body>
+</html>
